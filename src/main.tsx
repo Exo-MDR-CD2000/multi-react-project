@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 // Import Components
-import App from './components/App' // Import App Component
+import App from './App.tsx' // Import App Component
 
 
 // Import Dependencies
