@@ -44,5 +44,33 @@ export const initialRecipes: Recipe[] = [
         prepTime: "20 minutes",         // Example prep time
         caloriesPerServing: 350,        // Example calories per serving
     },
+    {
+        id: 4,
+        title: "Bourbon Street Beignets",
+        ingredients: [
+            "2 1/4 teaspoons active dry yeast",
+            "1 1/2 cups warm water (110°F)",
+            "1/2 cup sugar",
+            "1 teaspoon salt",
+            "2 large eggs",
+            "1 cup evaporated milk",
+            "7 cups all-purpose flour",
+            "1/4 cup shortening",
+            "Vegetable oil (for deep frying)",
+            "Powdered sugar (for dusting)"
+        ],
+        instructions: `
+            1. In a large bowl, dissolve yeast in warm water. Add sugar, salt, eggs, evaporated milk, and mix thoroughly.
+            2. Stir in 4 cups of the flour, beating until smooth. Add the shortening and the remaining flour, mixing until fully incorporated.
+            3. Cover and chill dough for at least 4 hours or overnight.
+            4. Roll out the dough on a lightly floured surface to 1/8 inch thickness. Cut into 2-inch squares.
+            5. Heat oil in a deep fryer to 370°F. Fry beignets for 2-3 minutes or until golden brown, flipping once.
+            6. Drain on paper towels and generously dust with powdered sugar.
+        `,
+        imageUrl: "https://img.spoonacular.com/recipes/635741-556x370.jpg",
+        servingSize: 12,                 // Serves 12 people
+        prepTime: "4 hours 30 minutes",  // Includes chilling time
+        caloriesPerServing: 250          // Approximate calories per beignet
+    }
     // Add more recipes as needed
 ];
