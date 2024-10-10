@@ -34,10 +34,18 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-center">My Recipe App</h1>
-      <RecipeForm onAddRecipe={addRecipe} />
-      <RecipeList recipes={recipes} />
+    <div className="d-flex justify-content-center">
+      <div className="container mt-4">
+        <h1 className="text-center">My Recipe App</h1>
+        <div className="row">
+          <div className="col-12">
+            <RecipeForm onAddRecipe={addRecipe} />
+          </div>
+          <div className="col-12 mt-4">
+            <RecipeList recipes={recipes} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

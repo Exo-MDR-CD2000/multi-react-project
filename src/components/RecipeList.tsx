@@ -5,6 +5,11 @@ interface Recipe {
   id: number;
   title: string;
   ingredients: string[];
+  instructions: string;
+  imageUrl: string;
+  servingSize: number;
+  prepTime: string;
+  caloriesPerServing: number;
 }
 
 interface RecipeListProps {
@@ -17,7 +22,16 @@ const RecipeList: React.FC<RecipeListProps> = ({ recipes }) => {
       <h2>Recipe List</h2>
       <div className="row">
         {recipes.map((recipe) => (
-          <RecipeCard key={recipe.id} title={recipe.title} ingredients={recipe.ingredients} />
+          <RecipeCard
+            key={recipe.id}
+            title={recipe.title}
+            ingredients={recipe.ingredients}
+            instructions={recipe.instructions}
+            imageUrl={recipe.imageUrl}
+            servingSize={recipe.servingSize}
+            prepTime={recipe.prepTime}
+            caloriesPerServing={recipe.caloriesPerServing}
+          />
         ))}
       </div>
     </div>
@@ -25,5 +39,3 @@ const RecipeList: React.FC<RecipeListProps> = ({ recipes }) => {
 };
 
 export default RecipeList;
-
-// test comment to push for changes
