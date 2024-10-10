@@ -18,7 +18,11 @@ export const initialRecipes: Recipe[] = [
         id: 1,
         title: "Spaghetti Bolognese",
         ingredients: ["Spaghetti", "Minced Beef", "Tomato Sauce", "Onion", "Garlic"],
-        instructions: "Boil pasta. Cook minced beef with onions, garlic, and tomato sauce. Mix together.",
+        instructions: `
+        1. Boil pasta. 
+        2. Cook minced beef with onions, garlic, and tomato sauce. 
+        3. Mix together.
+        `,
         imageUrl: "https://example.com/spaghetti.jpg", // FIXME: Replace with actual image URL
         servingSize: 4,                 // Example serving size
         prepTime: "30 minutes",         // Example prep time
@@ -28,7 +32,11 @@ export const initialRecipes: Recipe[] = [
         id: 2,
         title: "Chicken Curry",
         ingredients: ["Chicken", "Curry Powder", "Coconut Milk", "Onions", "Garlic"],
-        instructions: "Cook chicken. Add curry powder, onions, garlic, and coconut milk. Simmer.",
+        instructions: `
+        1. Cook chicken. 
+        2. Add curry powder, onions, garlic, and coconut milk. 
+        3. Simmer.
+        `,
         imageUrl: "https://example.com/chicken-curry.jpg", //FIXME: Replace with actual image URL
         servingSize: 4,                 // Example serving size
         prepTime: "45 minutes",         // Example prep time
@@ -38,7 +46,10 @@ export const initialRecipes: Recipe[] = [
         id: 3,
         title: "Pancakes",
         ingredients: ["Flour", "Eggs", "Milk", "Sugar", "Salt"],
-        instructions: "Mix ingredients. Cook on a pan until golden brown.",
+        instructions: `
+        1. Mix ingredients. 
+        2. Cook on a pan until golden brown.
+        `,
         imageUrl: "https://example.com/pancakes.jpg", //FIXME: Replace with actual image URL
         servingSize: 2,                 // Example serving size
         prepTime: "20 minutes",         // Example prep time
