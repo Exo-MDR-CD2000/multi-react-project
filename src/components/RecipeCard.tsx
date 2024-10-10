@@ -51,13 +51,3 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ title, ingredients, instruction
 };
 
 export default RecipeCard;
-
-
-
-
-{/* <h6 className="card-subtitle mt-3 mb-2 text-muted">Instructions</h6>
-          <ol className="list-group list-group-numbered">
-            {instructionSteps.map((step, index) => (
-              <li key={index} className="list-group-item">{step}</li>
-            ))}
-          </ol> */}
