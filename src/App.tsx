@@ -13,11 +13,16 @@ import './css/App.css'
 const App: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>(initialRecipes); // Use Recipe type here
 
-  const addRecipe = (recipe: { title: string; ingredients: string[] }) => {
+  const addRecipe = (recipe: Partial<Recipe>) => {
     const newRecipe: Recipe = {
-      id: recipes.length + 1, // Generate a new ID based on the current length
-      title: recipe.title,
-      ingredients: recipe.ingredients,
+      id: recipes.length + 1,
+      title: recipe.title || '',
+      ingredients: recipe.ingredients || [],
+      instructions: recipe.instructions || '',
+      imageUrl: recipe.imageUrl || '',
+      servingSize: recipe.servingSize || 0,
+      prepTime: recipe.prepTime || '',
+      caloriesPerServing: recipe.caloriesPerServing || 0,
     };
     setRecipes([...recipes, newRecipe]);
   };
