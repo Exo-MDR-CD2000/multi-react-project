@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
+
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import reactLogo from '../assets/react.svg'
 // import viteLogo from '/vite.svg'
 import { initialRecipes, Recipe } from './data/Recipes.ts'; // Import the Recipe type
 import RecipeList from './components/RecipeList.tsx';
 import RecipeForm from './components/RecipeForm.tsx';
+
+import BootstrapNavbar from './components/Navbar.tsx'; // Import the BootstrapNavbar component
+
+// import AboutPage from './pages/AboutPage.tsx';
+// import ContactPage from './pages/ContactPage.tsx';
+// import HomePage from './pages/HomePage.tsx';
 
 
 import './css/App.css'
