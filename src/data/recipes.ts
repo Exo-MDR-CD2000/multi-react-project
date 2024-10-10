@@ -10,7 +10,7 @@ export interface Recipe {
 }
 
 // Test data
-export const testRecipes: Recipe[] = [
+export const initialRecipes: Recipe[] = [
     {
         id: 1,
         title: "Spaghetti Bolognese",
