@@ -9,9 +9,8 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
   const [ingredientInput, setIngredientInput] = useState('');
   const [ingredients, setIngredients] = useState<string[]>([]);
 
-  // Change the parameter type to MouseEvent
   const handleAddIngredient = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault(); // Prevent default button behavior
+    e.preventDefault();
     if (ingredientInput.trim() !== '') {
       setIngredients([...ingredients, ingredientInput]);
       setIngredientInput('');
@@ -53,7 +52,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
               onChange={(e) => setIngredientInput(e.target.value)}
             />
             <button
-              type="button" // Set the button type to "button" to prevent form submission
+              type="button"
               className="btn btn-outline-secondary"
               onClick={handleAddIngredient}
             >

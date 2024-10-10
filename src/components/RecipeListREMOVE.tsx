@@ -15,11 +15,15 @@ const RecipeList: React.FC<RecipeListProps> = ({ recipes }) => {
   return (
     <div className="container mt-4">
       <h2>Recipe List</h2>
-      {recipes.map((recipe) => (
-        <RecipeCard key={recipe.id} title={recipe.title} ingredients={recipe.ingredients} />
-      ))}
+      <div className="row">
+        {recipes.map((recipe) => (
+          <RecipeCard key={recipe.id} title={recipe.title} ingredients={recipe.ingredients} />
+        ))}
+      </div>
     </div>
   );
 };
 
 export default RecipeList;
+
+// test comment to push for changes
