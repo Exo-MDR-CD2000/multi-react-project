@@ -1,4 +1,3 @@
-// src/pages/ContactPage.tsx
 import React from 'react';
 
 const ContactPage: React.FC = () => {
