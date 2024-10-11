@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import { initialRecipes, Recipe } from './services/Recipes.ts'; // Import the Recipe type
+import { initialRecipes, Recipe } from './types/Recipes.ts'; // Import the Recipe type
 import RecipeList from './components/RecipeList.tsx';
 import RecipeForm from './components/RecipeForm.tsx';
 
