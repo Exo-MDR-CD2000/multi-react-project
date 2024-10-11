@@ -1,11 +1,19 @@
-import { Recipe } from '../model/Recipe';
+// make a fetch request to the local db for all the dataimport { Recipe } from './Recipes';
 
-// Function to fetch recipes from the backend
-export async function fetchRecipes(): Promise<Recipe[]> {
-    const response = await fetch('http://localhost:3000/recipes');
-    if (!response.ok) {
-        throw new Error('Failed to fetch recipes');
+import { Recipe } from '../model/Recipes';
+
+const API_URL = 'http://localhost:3000/recipes';
+
+export const fetchRecipes = async (): Promise<Recipe[]> => {
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data: Recipe[] = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Failed to fetch recipes:', error);
+        throw error;
     }
-    const recipes: Recipe[] = await response.json();
-    return recipes;
-}
+};
