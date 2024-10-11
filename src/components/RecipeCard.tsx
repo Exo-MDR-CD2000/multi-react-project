@@ -13,6 +13,8 @@ interface RecipeCardProps {
 const RecipeCard: React.FC<RecipeCardProps> = ({ title, ingredients, instructions, imageUrl, servingSize, prepTime, caloriesPerServing }) => {
   const instructionSteps = instructions.split('\n').filter(step => step.trim() !== '');
 
+  //FIXME: fix the recipe instructions so that they are displayed correctly
+
   return (
     <div className="col-md-6 col-lg-4 mb-3">
       <div className="card h-100">
@@ -30,7 +32,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ title, ingredients, instruction
           <h6 className="card-subtitle mt-3 mb-2 text-muted">Instructions</h6>
           <ul className="list-group">
             {instructionSteps.map((step, index) => (
-              <li key={index} className="list-group-item">{step}</li>
+              <li key={index} className="list-group-item">{index + 1}. {step}</li>
             ))}
           </ul>
           <div className="row">

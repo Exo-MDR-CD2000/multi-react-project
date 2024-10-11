@@ -122,22 +122,14 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
         <div className="row mb-3">
           <div className="col-md-12">
             <label htmlFor="ingredientInput" className="form-label">Add Ingredient</label>
-            <div className="input-group">
-              <input
-                type="text"
-                id="ingredientInput"
-                className="form-control"
-                value={ingredientInput}
-                onChange={(e) => setIngredientInput(e.target.value)}
-              />
-              <button
-                type="button"
-                className="btn btn-outline-secondary"
-                onClick={handleAddIngredient}
-              >
-                Add
-              </button>
-            </div>
+            <input
+              type="text"
+              id="ingredientInput"
+              className="form-control"
+              value={ingredientInput}
+              onChange={(e) => setIngredientInput(e.target.value)}
+            />
+            <button className="btn btn-secondary mt-2" onClick={handleAddIngredient}>Add Ingredient</button>
           </div>
         </div>
         <ul className="list-group mb-3">
