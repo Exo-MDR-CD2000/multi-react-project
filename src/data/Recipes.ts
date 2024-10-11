@@ -23,7 +23,7 @@ export const initialRecipes: Recipe[] = [
         2. Cook minced beef with onions, garlic, and tomato sauce. 
         3. Mix together.
         `,
-        imageUrl: "https://example.com/spaghetti.jpg", // FIXME: Replace with actual image URL
+        imageUrl: "https://placehold.co/600x400", // FIXME: Replace with actual image URL
         servingSize: 4,                 // Example serving size
         prepTime: "30 minutes",         // Example prep time
         caloriesPerServing: 500,        // Example calories per serving
@@ -37,7 +37,7 @@ export const initialRecipes: Recipe[] = [
         2. Add curry powder, onions, garlic, and coconut milk. 
         3. Simmer.
         `,
-        imageUrl: "https://example.com/chicken-curry.jpg", //FIXME: Replace with actual image URL
+        imageUrl: "https://placehold.co/600x400", //FIXME: Replace with actual image URL
         servingSize: 4,                 // Example serving size
         prepTime: "45 minutes",         // Example prep time
         caloriesPerServing: 600,        // Example calories per serving
@@ -50,7 +50,7 @@ export const initialRecipes: Recipe[] = [
         1. Mix ingredients. 
         2. Cook on a pan until golden brown.
         `,
-        imageUrl: "https://example.com/pancakes.jpg", //FIXME: Replace with actual image URL
+        imageUrl: "https://placehold.co/600x400", //FIXME: Replace with actual image URL
         servingSize: 2,                 // Example serving size
         prepTime: "20 minutes",         // Example prep time
         caloriesPerServing: 350,        // Example calories per serving
