@@ -1,5 +1,11 @@
 // future prop for defining the recipe
 
+/**
+ * The Recipe type defines the structure of a recipe object.
+ * Also contains some example data for initialRecipes.
+ * Will be displayed in the RecipeList component.
+ */
+
 // Recipe type definition
 export interface Recipe {
     id: number;

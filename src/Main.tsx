@@ -19,3 +19,10 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+
+
+
+/**  
+ * mainly contains the overall structure of the application.
+ * Has the dependencies and styles imported.
+*/

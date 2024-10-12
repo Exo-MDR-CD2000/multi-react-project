@@ -1,5 +1,19 @@
 import React, { useState } from 'react';
 
+/** 
+ * This component is a good example of useState and form handling in React.
+*/
+
+
+/**
+ * The RecipeForm component is a form for adding a new recipe.
+ * It contains input fields for the recipe title, ingredients, instructions, image URL, serving size, prep time, and calories per serving.
+ * The form also includes a button to add ingredients to the list.
+ * The form submission is handled by the handleSubmit function.
+ * The RecipeForm component is a functional component that receives the onAddRecipe prop.
+ * The onAddRecipe prop is a function that takes a recipe object as an argument and adds it to the list of recipes.
+ * The RecipeForm component is exported as the default export.
+ */
 interface RecipeFormProps {
   onAddRecipe: (recipe: {
     title: string;

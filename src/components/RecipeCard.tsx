@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * The RecipeCard component displays a single recipe.
+ * The instructions are split into individual steps via the split method.
+ * The ingredients are displayed as a list.
+ */
 interface RecipeCardProps {
   title: string;
   ingredients: string[];

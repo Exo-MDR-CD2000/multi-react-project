@@ -16,6 +16,17 @@ import RecipeForm from './components/RecipeForm.tsx';
 import './css/App.css'
 
 
+
+/**  
+ * The App component is the root component of the application.
+ * It contains the RecipeForm and RecipeList components.
+ * The RecipeForm component is used to add new recipes to the list.
+ * The RecipeList component displays the list of recipes.
+ * The App component uses the useState hook to manage the list of recipes.
+ * The addRecipe function is used to add a new recipe to the list.
+ * There is also defensive programming in place to handle missing values in the recipe object.
+ * The App component is exported as the default export.
+*/
 const App: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>(initialRecipes); // Use Recipe type here
 
