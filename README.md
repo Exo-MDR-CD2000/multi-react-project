@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# React Site WIP Final Project
+Static React project based around cooking recipes.
+## Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is assignment is a month long final project based on React and Typescript. The foundation for this project has been made and will be based around user created cooking recipes that can be saved to a local backend like json-server. Editing and deleting of recipes is planned as well as using Spoonacular for fetching an online database of cooking recipes. The recipes will be displayed as cards. This first week is to demonstrate a mockup of a static site with some example data that will be used and must fulfill the following criteria:
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Requirements
 
-## Expanding the ESLint configuration
+1. It has at least 3 React components
+   - A component is a function that returns JSX and components are used like they’re an HTML element.
+   - `main.tsx` does not count as a component, it doesn’t have a function that returns JSX.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. It’s displaying the test data
+   - You can put your array of data in whatever file you want, or even in its own file.
 
-- Configure the top-level `parserOptions` property like this:
+3. It’s using at least 1 prop on your own components
+   - A prop is set like it’s an HTML attribute, and received as a destructured parameter property.
+   - `key` does not count for this, you need to come up with your own prop and practice setting it and receiving it.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+4. No red errors/warnings in the console in the browser.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+5. No type errors in VS Code.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Usage
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+To get a local copy up and running follow these simple steps. This also assumes you have node installed to download npm packages.
+
+1. **Clone the repo (SSH Method Below)**
+    ```sh
+    git clone git@github.com:Exo-MDR-CD2000/multi-react-project.git
+    ```
+2. **Checkout Branch into "week-14-react-static"**
+    ```sh
+    git checkout week-14-react-static
+    ```
+3. **Install required packages**
+    ```sh
+    npm install
+    ```
+4. **Open a second terminal in the project repo to start Vite**
+    ```sh
+    npm run dev
+    ```
+
+The React project will start and display the static data that I was using for testing. The form is actually working, but is not a requirement for this week. 
+
+## Link(s)
+
+- Promineo Videos and Independent Research
+- [Github Repo](https://github.com/Exo-MDR-CD2000/multi-react-project/tree/week-14-react-static)
