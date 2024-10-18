@@ -53,3 +53,12 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ title, ingredients, instruction
 };
 
 export default RecipeCard;
+
+
+/**
+ * TODO: add crud functionality to the RecipeCard component. think about react concepts like lifting up state if needed
+ * use react bootstrap to display a modal for editing a recipe
+ * stick with json-server for now and look into mockAPI later for an online db
+
+
+*/
