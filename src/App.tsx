@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchRecipes, addRecipe as addRecipeToAPI } from './services/Localdb.tsx';
+import { fetchRecipes, addRecipe as addRecipeToAPI } from './services/recipeService.tsx';
 import { Recipe } from './model/Recipes.ts';
 import RecipeList from './components/RecipeList.tsx';
 import RecipeForm from './components/RecipeForm.tsx';
