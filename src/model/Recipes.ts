@@ -1,8 +1,8 @@
-// future prop for defining the recipe
-
-// Recipe type definition
+/**
+ * Instead of using a type, we can use an interface to define the structure of a recipe object.
+ */
 export interface Recipe {
-    id: number;
+    id: string;
     title: string;
     ingredients: string[];
     instructions: string;
@@ -11,5 +11,3 @@ export interface Recipe {
     prepTime: string;           // New field for preparation time
     caloriesPerServing: number; // New field for calories per serving
 }
-
-//TODO - Look into changing id from number to string due to how mockAPI handles id's

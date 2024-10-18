@@ -44,7 +44,7 @@ export const addRecipe = async (recipe: Partial<Recipe>): Promise<Recipe> => {
     }
 };
 
-export const deleteRecipe = async (id: number): Promise<void> => {
+export const deleteRecipe = async (id: string): Promise<void> => {
     try {
         const response = await fetch(`${BASE_API_URL}recipes/${id}`, {
             method: 'DELETE',

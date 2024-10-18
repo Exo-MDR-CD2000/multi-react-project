@@ -3,7 +3,7 @@ import RecipeCard from './RecipeCard';
 
 // Define the Recipe interface to specify the structure of a recipe object
 interface Recipe {
-  id: number;
+  id: string;
   title: string;
   ingredients: string[];
   instructions: string;
