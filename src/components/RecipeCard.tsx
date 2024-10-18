@@ -63,6 +63,8 @@ export default RecipeCard;
  * TODO: add crud functionality to the RecipeCard component. think about react concepts like lifting up state if needed
  * use react bootstrap to display a modal for editing a recipe
  * stick with json-server for now and look into mockAPI later for an online db
+ * 
+ * If i ever use the spoonacular api, come up with an easier method of parsing the data to a format that can be used in the app
 
 
 */
