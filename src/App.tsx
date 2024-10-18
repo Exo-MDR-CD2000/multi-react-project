@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from 'react';
-
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import { fetchRecipes } from './services/Localdb.tsx';
-import { Recipe } from './model/Recipes.ts'; // Import the Recipe type
+import { fetchRecipes, addRecipe as addRecipeToAPI } from './services/Localdb.tsx';
+import { Recipe } from './model/Recipes.ts';
 import RecipeList from './components/RecipeList.tsx';
 import RecipeForm from './components/RecipeForm.tsx';
-
-// import BootstrapNavbar from './components/Navbar.tsx'; // Import the BootstrapNavbar component
-
-// import AboutPage from './pages/AboutPage.tsx';
-// import ContactPage from './pages/ContactPage.tsx';
-// import HomePage from './pages/HomePage.tsx';
-
-
-import './css/App.css'
+import './css/App.css';
 
 
 const App: React.FC = () => {
@@ -32,18 +21,13 @@ const App: React.FC = () => {
     getRecipes();
   }, []);
 
-  const addRecipe = (recipe: Partial<Recipe>) => {
-    const newRecipe: Recipe = {
-      id: recipes.length + 1,
-      title: recipe.title || '',
-      ingredients: recipe.ingredients || [],
-      instructions: recipe.instructions || '',
-      imageUrl: recipe.imageUrl || '',
-      servingSize: recipe.servingSize || 0,
-      prepTime: recipe.prepTime || '',
-      caloriesPerServing: recipe.caloriesPerServing || 0,
-    };
-    setRecipes([...recipes, newRecipe]);
+  const addRecipe = async (recipe: Partial<Recipe>) => {
+    try {
+      const newRecipe = await addRecipeToAPI(recipe);
+      setRecipes([...recipes, newRecipe]);
+    } catch (error) {
+      console.error('Failed to add recipe:', error);
+    }
   };
 
   return (
@@ -64,7 +48,6 @@ const App: React.FC = () => {
 };
 
 export default App;
-
 
 /*
 import React, { useState, useEffect } from 'react';

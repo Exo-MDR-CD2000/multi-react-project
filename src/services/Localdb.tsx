@@ -1,12 +1,18 @@
 // make a fetch request to the local db for all the dataimport { Recipe } from './Recipes';
-
 import { Recipe } from '../model/Recipes';
 
-const API_URL = 'http://localhost:3000/recipes';
+const BASE_API_URL = `https://${import.meta.env.VITE_API_KEY}.mockapi.io/recipes/v1/`;
+
+/**TODO - remember to document how to make env variables work within a react project using vite
+ * create a separate env file for the api key
+ * use "VITE_" as a prefix for the env variable
+ * Then import the env variable in the file you want to use it in
+ * import.meta.env.VITE_API_KEY such as the one above
+ */ 
 
 export const fetchRecipes = async (): Promise<Recipe[]> => {
     try {
-        const response = await fetch(API_URL);
+        const response = await fetch(`${BASE_API_URL}recipes`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -18,11 +24,9 @@ export const fetchRecipes = async (): Promise<Recipe[]> => {
     }
 };
 
-
-// wip POST request to add a new recipe to the local db
 export const addRecipe = async (recipe: Partial<Recipe>): Promise<Recipe> => {
     try {
-        const response = await fetch(API_URL, {
+        const response = await fetch(`${BASE_API_URL}recipes`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,11 +44,9 @@ export const addRecipe = async (recipe: Partial<Recipe>): Promise<Recipe> => {
     }
 };
 
-
-// wip DELETE request to delete a recipe from the local db
 export const deleteRecipe = async (id: number): Promise<void> => {
     try {
-        const response = await fetch(`${API_URL}/${id}`, {
+        const response = await fetch(`${BASE_API_URL}recipes/${id}`, {
             method: 'DELETE',
         });
         if (!response.ok) {
@@ -56,11 +58,9 @@ export const deleteRecipe = async (id: number): Promise<void> => {
     }
 };
 
-
-// wip PUT request to update a recipe in the local db
 export const updateRecipe = async (recipe: Recipe): Promise<Recipe> => {
     try {
-        const response = await fetch(`${API_URL}/${recipe.id}`, {
+        const response = await fetch(`${BASE_API_URL}recipes/${recipe.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

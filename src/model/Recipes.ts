@@ -11,3 +11,5 @@ export interface Recipe {
     prepTime: string;           // New field for preparation time
     caloriesPerServing: number; // New field for calories per serving
 }
+
+//TODO - Look into changing id from number to string due to how mockAPI handles id's
