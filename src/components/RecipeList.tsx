@@ -1,16 +1,18 @@
 import React from 'react';
 import RecipeCard from './RecipeCard';
+import { Recipe } from '../model/Recipes';
 
-// Define the Recipe interface to specify the structure of a recipe object
-interface Recipe {
-  id: string;
-  title: string;
-  ingredients: string[];
-  instructions: string;
-  imageUrl: string;
-  servingSize: number;
-  prepTime: string;
-  caloriesPerServing: number;
+/**
+ * Props for the RecipeList component.
+ * @typedef {Object} RecipeListProps
+ * @property {Recipe[]} recipes - The array of recipes to display.
+ * @property {Function} onUpdateClick - Function to handle the update click event.
+ * @property {Function} onDeleteClick - Function to handle the delete click event.
+ */
+interface RecipeListProps {
+  recipes: Recipe[];
+  onUpdateClick: (recipe: Recipe) => void;
+  onDeleteClick: (id: string) => void;
 }
 
 /**
@@ -25,29 +27,22 @@ interface RecipeListProps {
 /**
  * RecipeList component
  * This component receives an array of recipes as a prop and renders a list of RecipeCard components.
+ * we have to pass down the onUpdateClick and onDeleteClick functions to the RecipeCard component
  * 
  * @param {RecipeListProps} props - The props for the RecipeList component.
  * @returns {JSX.Element} The rendered component.
  */
-const RecipeList: React.FC<RecipeListProps> = ({ recipes }) => {
+const RecipeList: React.FC<RecipeListProps> = ({ recipes, onUpdateClick, onDeleteClick }) => {
   return (
     <div className="container mt-4">
       <h2>Recipe List</h2>
       <div className="row">
-        {/** 
-         * Iterate over the recipes array and render a RecipeCard component for each recipe.
-         * The recipes prop is being used here to map over the array and pass individual recipe data to RecipeCard.
-         */}
         {recipes.map((recipe) => (
           <RecipeCard
             key={recipe.id}
-            title={recipe.title}
-            ingredients={recipe.ingredients}
-            instructions={recipe.instructions}
-            imageUrl={recipe.imageUrl}
-            servingSize={recipe.servingSize}
-            prepTime={recipe.prepTime}
-            caloriesPerServing={recipe.caloriesPerServing}
+            recipe={recipe}
+            onUpdateClick={onUpdateClick}
+            onDeleteClick={onDeleteClick}
           />
         ))}
       </div>

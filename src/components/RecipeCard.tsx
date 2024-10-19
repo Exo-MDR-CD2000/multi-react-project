@@ -18,6 +18,7 @@ interface RecipeCardProps {
 /**
  * RecipeCard component
  * This component renders a card displaying the details of a recipe.
+ * The code also knows which recipe card is being clicked on and will update or delete that recipe
  * 
  * Also has logic for parsing the instructions as HTML or plain text. (for potential future use with the spoonacular api)
  * @param {RecipeCardProps} props - The props for the RecipeCard component.
