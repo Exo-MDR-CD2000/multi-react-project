@@ -4,6 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { Recipe } from '../model/Recipes';
 
 
+// important to note that this component lives separately from all the other components
+// It is not nested in any other component and can be lifted up to the App component
+
 /**
  * Props for the RecipeUpdateModal component.
  * @typedef {Object} RecipeUpdateModalProps
