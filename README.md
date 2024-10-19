@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# React Site WIP Final Project
+Static React project based around cooking recipes.
+## Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is assignment is a month long final project based on React and Typescript. The foundation for this project has been made and will be based around user created cooking recipes that can be saved to a local backend like MockAPI. The example data has already been made and MockAPI is already in use. 
 
-Currently, two official plugins are available:
+For the second week, we have to implement all of the CRUD operations. I did went ahead a bit since my project makes use of forms and useEffects, but the static data is still present. I'm mainly using prop drilling to pass down the required data/functions necessary to make update and delete work. The example data shown in the video demo will not appear because an env file is used to hide the MockAPI key. I beleive this also makes the recipe form broken as well due to env file.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Requirements
 
-## Expanding the ESLint configuration
+1. No red errors/warnings in the console in the browser.
+2. No type errors in VS Code.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+At this point, your project must meet these new requirements:
 
-- Configure the top-level `parserOptions` property like this:
+- A user can create new items (the new items will all have the same data)
+- A user can delete items
+- A user can update at least one property on the items
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+As well as the requirements from last week:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- It has at least 3 React components
+- It’s displaying the test data
+- It’s using at least 1 prop
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Usage
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+To get a local copy up and running follow these simple steps. This also assumes you have node installed to download npm packages.
+
+1. **Clone the repo (SSH Method Below)**
+    ```sh
+    git clone git@github.com:Exo-MDR-CD2000/multi-react-project.git
+    ```
+2. **Checkout Branch into "main"**
+    ```sh
+    git checkout main
+    ```
+3. **Install required packages**
+    ```sh
+    npm install
+    ```
+4. **Open a second terminal in the project repo to start Vite**
+    ```sh
+    npm run dev
+    ```
+5. **Local API data is hosted on MockAPI and requires no further action**
+
+## Link(s)
+
+- Promineo Videos and Independent Research
+- [Github Repo](https://github.com/Exo-MDR-CD2000/multi-react-project)
