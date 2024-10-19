@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 
+/**
+ * Props for the RecipeForm component.
+ * @typedef {Object} RecipeFormProps
+ * @property {Function} onAddRecipe - Function to handle adding a new recipe.
+ */
 interface RecipeFormProps {
   onAddRecipe: (recipe: {
     title: string;
@@ -12,6 +17,13 @@ interface RecipeFormProps {
   }) => void;
 }
 
+/**
+ * RecipeForm component
+ * This component renders a form to add a new recipe.
+ * 
+ * @param {RecipeFormProps} props - The props for the RecipeForm component.
+ * @returns {JSX.Element} The rendered component.
+ */
 const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
   const [title, setTitle] = useState('');
   const [ingredientInput, setIngredientInput] = useState('');
@@ -22,6 +34,11 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
   const [prepTime, setPrepTime] = useState('');
   const [caloriesPerServing, setCaloriesPerServing] = useState(0);
 
+  /**
+   * Handles adding an ingredient to the ingredients list.
+   * 
+   * @param {React.MouseEvent<HTMLButtonElement>} e - The click event.
+   */
   const handleAddIngredient = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (ingredientInput.trim() !== '') {
@@ -30,6 +47,11 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
     }
   };
 
+  /**
+   * Handles form submission to add a new recipe.
+   * 
+   * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
+   */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (title.trim() && ingredients.length > 0 && instructions.trim() && imageUrl.trim() && prepTime.trim() && servingSize > 0 && caloriesPerServing > 0) {
