@@ -21,6 +21,9 @@ const App: React.FC = () => {
 
   /**
    * Fetch recipes from the API when the component mounts.
+   * We use the useEffect hook to fetch the recipes when the component mounts.
+   * It's an empty dependency array, so it only runs once when the component mounts (uses empty [] as the second argument to useEffect).
+   * useEffects are perfect for fetching data from an API, setting up subscriptions, or manually changing the DOM in React components.
    */
   useEffect(() => {
     const getRecipes = async () => {
