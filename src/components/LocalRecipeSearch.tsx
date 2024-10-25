@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 //figure out how to pass the search term to the parent component
 
 //Overall component is an example of lifting state up since the search term is being passed to the parent component (App.tsx)
+// Also a demonstration of controlled components/input since the search term is being stored in the state of the LocalRecipeSearch component
 
 /**
  * Callback function for the LocalRecipeSearch component.
@@ -33,8 +34,10 @@ const LocalRecipeSearch: React.FC<LocalRecipeSearchProps> = ({ onSearch }) => {
      */
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value  = event.target.value;
-        setSearchTerm(value);
-        onSearch(value);
+        // console.log('Old searchTerm:', searchTerm); // Log the old searchTerm value
+        setSearchTerm(value); // update the state with the new value
+        // console.log('New searchTerm:', value); // Log the new searchTerm value
+        onSearch(value); // call the onSearch callback function with the new value
     };
 
     return (

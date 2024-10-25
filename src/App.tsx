@@ -29,6 +29,7 @@ const App: React.FC = () => {
    * useEffects are perfect for fetching data from an API, setting up subscriptions, or manually changing the DOM in React components.
    */
   useEffect(() => {
+    console.log('useEffect called');
     const getRecipes = async () => {
       try {
         const fetchedRecipes = await fetchRecipes();

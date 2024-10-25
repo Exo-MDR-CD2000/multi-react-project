@@ -11,6 +11,7 @@ const BASE_API_URL = `https://${import.meta.env.VITE_API_KEY}.mockapi.io/recipes
  */ 
 
 export const fetchRecipes = async (): Promise<Recipe[]> => {
+    console.log('fetchRecipes called');
     try {
         const response = await fetch(`${BASE_API_URL}recipes`);
         if (!response.ok) {
