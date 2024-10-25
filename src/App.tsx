@@ -6,7 +6,7 @@ import RecipeForm from './components/RecipeForm.tsx';
 
 import RecipeUpdateModal from './components/RecipeUpdateModal.tsx';
 
-import LocalRecipeSearch from './components/LocalRecipeSearch.tsx';
+// import LocalRecipeSearch from './components/LocalRecipeSearch.tsx';
 
 import './css/App.css';
 
@@ -20,7 +20,7 @@ const App: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  // const [searchTerm, setSearchTerm] = useState('');
 
   /**
    * Fetch recipes from the API when the component mounts.
@@ -107,17 +107,17 @@ const App: React.FC = () => {
    * 
    * @param {string} term - The current search term.
    */
-  const handleSearch = (term: string) => {
-    setSearchTerm(term);
-  };
+  // const handleSearch = (term: string) => {
+  //   setSearchTerm(term);
+  // };
 
   /**
    * Filters the recipes based on the search term.
    * 
    * @returns {Recipe[]} The filtered list of recipes.
    */
-  const filteredRecipes = recipes.filter(recipe => 
-    recipe.title.toLowerCase().includes(searchTerm.toLowerCase()));
+  // const filteredRecipes = recipes.filter(recipe => 
+  //   recipe.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
     <div className="d-flex justify-content-center">
@@ -127,13 +127,13 @@ const App: React.FC = () => {
           <div className="col-12">
             <RecipeForm onAddRecipe={addRecipe} />
           </div>
-          <div className="col-6 mt-4">
+          {/* <div className="col-6 mt-4">
             <LocalRecipeSearch onSearch={handleSearch} />
-          </div>
+          </div> */}
           <div className="col-12 mt-4">
             <RecipeList
-              // recipes={recipes}
-              recipes={filteredRecipes}
+              recipes={recipes}
+              // recipes={filteredRecipes}
               onUpdateClick={handleUpdateClick}
               onDeleteClick={deleteRecipe}
             />
