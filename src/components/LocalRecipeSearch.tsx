@@ -33,15 +33,17 @@ const LocalRecipeSearch: React.FC<LocalRecipeSearchProps> = ({ onSearch }) => {
      * @param {React.ChangeEvent<HTMLInputElement>} event - The change event. 
      */
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value  = event.target.value;
-        // console.log('Old searchTerm:', searchTerm); // Log the old searchTerm value
-        setSearchTerm(value); // update the state with the new value
-        // console.log('New searchTerm:', value); // Log the new searchTerm value
-        onSearch(value); // call the onSearch callback function with the new value
+        setSearchTerm(event.target.value); // update the state with the new value
+    };
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        onSearch(searchTerm);
     };
 
     return (
         <div className="search-bar">
+          <form onSubmit={handleSubmit} className="input-group">
           <input
             type="text"
             placeholder="Search recipes by name..."
@@ -49,6 +51,8 @@ const LocalRecipeSearch: React.FC<LocalRecipeSearchProps> = ({ onSearch }) => {
             onChange={handleChange}
             className="form-control"
           />
+          <button type="submit" className="btn btn-primary">Search</button>
+          </form>
         </div>
       );
 };
