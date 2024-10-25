@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // recipe interface is imported because it is used in the RecipeUpdateModalProps interface
-import { Recipe } from '../model/Recipes';
+import { Recipe } from '../model/recipes.ts';
 
 
 // important to note that this component lives separately from all the other components

@@ -1,6 +1,6 @@
 import React from 'react';
 import RecipeCard from './RecipeCard';
-import { Recipe } from '../model/Recipes';
+import { Recipe } from '../model/recipes.ts';
 
 /**
  * Props for the RecipeList component.

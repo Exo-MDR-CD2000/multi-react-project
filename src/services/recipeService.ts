@@ -1,5 +1,5 @@
 // make a fetch request to the local db for all the dataimport { Recipe } from './Recipes';
-import { Recipe } from '../model/Recipes';
+import { Recipe } from '../model/recipes.ts';
 
 const BASE_API_URL = `https://${import.meta.env.VITE_API_KEY}.mockapi.io/recipes/v1/`;
 
