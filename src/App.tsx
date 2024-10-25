@@ -4,7 +4,7 @@ import { Recipe } from './model/recipes.ts';
 import RecipeList from './components/RecipeList.tsx';
 import RecipeForm from './components/RecipeForm.tsx';
 
-import RecipeUpdateModal from './components/recipeUpdateModal.tsx';
+import RecipeUpdateModal from './components/RecipeUpdateModal.tsx';
 
 import LocalRecipeSearch from './components/LocalRecipeSearch.tsx';
 
