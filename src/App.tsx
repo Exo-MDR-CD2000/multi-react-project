@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchRecipes, addRecipe as addRecipeToAPI, updateRecipe as updateRecipeToAPI, deleteRecipe as deleteRecipeFromAPI } from './services/recipeService';
+import { fetchRecipes, addRecipe as addRecipeToAPI, updateRecipe as updateRecipeToAPI, deleteRecipe as deleteRecipeFromAPI } from './services/recipeService.ts';
 import { Recipe } from './model/Recipes.ts';
 import RecipeList from './components/RecipeList.tsx';
 import RecipeForm from './components/RecipeForm.tsx';
