@@ -20,7 +20,19 @@
 //   background-color: black;
 // }
 
-.card .collapse {
-    transition: height 0.3s ease;
+.card-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
+}
+
+// .collapsed-card .card-body {
+//   display: none;
+// }
+
+// .collapsed-card .card-header {
+//   border-bottom: none;
+// }

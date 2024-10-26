@@ -1,1 +1,1 @@
-.card .collapse{transition:height .3s ease}/*# sourceMappingURL=App.min.css.map */
+.card-wrapper{transition:transform .3s ease,box-shadow .3s ease}.card-wrapper:hover{transform:scale(1.02);box-shadow:0 4px 8px rgba(0,0,0,.2)}/*# sourceMappingURL=App.min.css.map */
