@@ -60,13 +60,13 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onUpdateClick, onDelete
             <div className="col-6">
               <p className="card-text"><strong>Prep Time:</strong> {recipe.prepTime}</p>
             </div>
-            <div className="col-6">
+            <div className="col-6 mt-2">
               <p className="card-text"><strong>Calories/Serving:</strong> {recipe.caloriesPerServing}</p>
             </div>
           </div>
-          <div className="d-flex justify-content-between mt-3">
-            <button className="btn btn-warning" onClick={() => onUpdateClick(recipe)}>Update</button>
-            <button className="btn btn-danger" onClick={() => onDeleteClick(recipe.id)}>Delete</button>
+          <div className="d-flex mt-3">
+            <button className="btn btn-warning flex-grow-1 me-1" onClick={() => onUpdateClick(recipe)}>Update</button>
+            <button className="btn btn-danger flex-grow-1 me-1" onClick={() => onDeleteClick(recipe.id)}>Delete</button>
           </div>
         </div>
       </div>
