@@ -26,6 +26,7 @@ interface RecipeCardProps {
 const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onUpdateClick, onDeleteClick }) => {
   // Initialize the collapsed state from localStorage
   const [isCollapsed, setIsCollapsed] = useState(() => {
+    // Retrieve the saved state from localStorage
     const savedState = localStorage.getItem(`collapsed-${String(recipe.id)}`);
     return savedState ? JSON.parse(savedState) : false;
   });
