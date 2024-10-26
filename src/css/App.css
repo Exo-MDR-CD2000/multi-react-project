@@ -1,3 +1,7 @@
+.location-route-test {
+  color: red;
+}
+
 .card-wrapper {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

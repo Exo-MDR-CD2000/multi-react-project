@@ -102,7 +102,7 @@ const HomePage: React.FC = () => {
   return (
     <div>
       {/* Display a message if the user is on the Home Page (testing purposes) */}
-      {location.pathname === '/' && <div>You are on the Home Page</div>}
+      {location.pathname === '/' && <div className="location-route-test">You are on the Home Page</div>}
       <div className="row">
         <div className="col-12">
           {/* Render the RecipeForm component to add a new recipe */}

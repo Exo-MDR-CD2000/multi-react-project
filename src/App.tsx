@@ -5,6 +5,8 @@ import MyRecipesPage from './pages/MyRecipesPage';
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
 import ScrollBackToTop from './components/ScrollBackToTop';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 /**
  * The main App component that sets up routing for the application.
@@ -16,7 +18,9 @@ const App: React.FC = () => {
   return (
     // Wrap the entire application in the Router component to enable routing
     <Router>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex flex-column">
+        {/* Include the Navbar component to provide navigation links */}
+        <Navbar />
         <div className="container mt-4">
           <h1 className="text-center">My Recipe App</h1>
           {/* Define the Routes component to specify the different routes in the application */}
@@ -33,6 +37,8 @@ const App: React.FC = () => {
           {/* Include the ScrollBackToTop component to handle scrolling behavior */}
           <ScrollBackToTop />
         </div>
+        {/* Include the Footer component to provide footer content */}
+        <Footer />
       </div>
     </Router>
   );
