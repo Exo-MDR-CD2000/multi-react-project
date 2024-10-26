@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Recipe } from '../model/recipes.ts';
 
 
@@ -24,12 +24,19 @@ interface RecipeCardProps {
  * @returns {JSX.Element} The rendered component.
  */
 const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onUpdateClick, onDeleteClick }) => {
+  // Initialize the collapsed state from localStorage
+  const [isCollapsed, setIsCollapsed] = useState(() => {
+    const savedState = localStorage.getItem(`collapsed-${String(recipe.id)}`);
+    return savedState ? JSON.parse(savedState) : false;
+  });
 
-  // State to track if the card is collapsed
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  
   // Check if the instructions contain HTML tags
   const isHtml = /<\/?[a-z][\s\S]*>/i.test(recipe.instructions);
+
+  // Effect to save the collapsed state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem(`collapsed-${String(recipe.id)}`, JSON.stringify(isCollapsed));
+  }, [isCollapsed, recipe.id]);
 
   /**
    * Toggles the collapsed state of the card.
@@ -109,19 +116,6 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onUpdateClick, onDelete
 export default RecipeCard;
 
 
-/**
- * TODO: add crud functionality to the RecipeCard component. think about react concepts like lifting up state if needed
- * use react bootstrap to display a modal for editing a recipe
- * stick with json-server for now and look into mockAPI later for an online db
- * 
- * If i ever use the spoonacular api, come up with an easier method of parsing the data to a format that can be used in the app
-
-
-*/
-
-
-
-
 /** 
  
 import React from 'react';
@@ -189,8 +183,54 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onUpdateClick, onDelete
   );
 };
 
-export default RecipeCard;
 
 export default RecipeCard;
 
 */
+
+// Code to manage state by using local storage for collapsed state
+
+// revised code for using local storage to manage the collapsed state of the recipe card
+
+// /**
+//  * RecipeCard component
+//  * This component renders a card displaying the details of a recipe.
+//  * The card can be collapsed to show only the image and title.
+//  * 
+//  * @param {RecipeCardProps} props - The props for the RecipeCard component.
+//  * @returns {JSX.Element} The rendered component.
+//  */
+// const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onUpdateClick, onDeleteClick }) => {
+//   // Initialize the collapsed state from localStorage
+//   const [isCollapsed, setIsCollapsed] = useState(() => {
+//     const savedState = localStorage.getItem(`collapsed-${String(recipe.id)}`);
+//     return savedState ? JSON.parse(savedState) : false;
+//   });
+
+//   // Check if the instructions contain HTML tags
+//   const isHtml = /<\/?[a-z][\s\S]*>/i.test(recipe.instructions);
+
+//   // Effect to save the collapsed state to localStorage whenever it changes
+//   useEffect(() => {
+//     localStorage.setItem(`collapsed-${String(recipe.id)}`, JSON.stringify(isCollapsed));
+//   }, [isCollapsed, recipe.id]);
+
+// ---------------------------------------------------------
+
+// Code that does not use local storage to manage the collapsed state of the recipe card
+
+// /**
+//  * RecipeCard component
+//  * This component renders a card displaying the details of a recipe.
+//  * The card can be collapsed to show only the image and title.
+//  * 
+//  * @param {RecipeCardProps} props - The props for the RecipeCard component.
+//  * @returns {JSX.Element} The rendered component.
+//  */
+// const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onUpdateClick, onDeleteClick }) => {
+
+//   // State to track if the card is collapsed
+//   const [isCollapsed, setIsCollapsed] = useState(false);
+  
+//   // Check if the instructions contain HTML tags
+//   const isHtml = /<\/?[a-z][\s\S]*>/i.test(recipe.instructions);
