@@ -60,6 +60,14 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
     e.preventDefault();
     const finalImageUrl = imageUrl.trim() || BASE_IMAGE_URL;
 
+    console.log('recipe title:', title, 
+      'ingredients:', ingredients, 
+      'instructions:', instructions, 
+      'image:', finalImageUrl, 
+      'serving size:', servingSize, 
+      'prep time:', prepTime, 
+      'calories per serving:', caloriesPerServing);
+
     if (title.trim() && ingredients.length > 0 && instructions.trim() && prepTime.trim() && servingSize > 0 && caloriesPerServing > 0) {
       console.log('Form is valid. Submitting...');
       const newRecipe: Recipe = {
