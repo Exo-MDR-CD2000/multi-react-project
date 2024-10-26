@@ -52,4 +52,5 @@ To get a local copy up and running follow these simple steps. This also assumes 
 ## Link(s)
 
 - Promineo Videos and Independent Research
+- Instructor help from George Heeres about api config file use
 - [Github Repo](https://github.com/Exo-MDR-CD2000/multi-react-project)
