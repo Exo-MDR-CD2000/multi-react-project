@@ -13,6 +13,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min'; // Import Bootstrap JS
 
 // Styles
 import './css/index.css'
+import './css/App.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

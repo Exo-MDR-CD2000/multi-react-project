@@ -10,7 +10,7 @@ import ScrollBackToTop from './components/ScrollBackToTop.tsx';
 
 // import LocalRecipeSearch from './components/LocalRecipeSearch.tsx';
 
-import './css/App.css';
+// import './css/App.css';
 
 /**
  * The main App component.
