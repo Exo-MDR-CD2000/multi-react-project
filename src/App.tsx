@@ -133,6 +133,7 @@ const App: React.FC = () => {
             <LocalRecipeSearch onSearch={handleSearch} />
           </div> */}
           <div className="col-12 mt-4">
+          <hr />
             <RecipeList
               recipes={recipes}
               // recipes={filteredRecipes}
