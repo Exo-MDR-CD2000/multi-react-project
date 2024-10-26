@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Recipe } from '../model/recipes';
 
 /**
  * Props for the RecipeForm component.
@@ -6,15 +7,7 @@ import React, { useState } from 'react';
  * @property {Function} onAddRecipe - Function to handle adding a new recipe.
  */
 interface RecipeFormProps {
-  onAddRecipe: (recipe: {
-    title: string;
-    ingredients: string[];
-    instructions: string;
-    imageUrl: string;
-    servingSize: number;
-    prepTime: string;
-    caloriesPerServing: number;
-  }) => void;
+  onAddRecipe: (recipe: Recipe) => void;
 }
 
 /**
@@ -66,18 +59,21 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const finalImageUrl = imageUrl.trim() || BASE_IMAGE_URL;
-    console.log('Form Submitted');
-    console.log('Title:', title);
-    console.log('Ingredients:', ingredients);
-    console.log('Instructions:', instructions);
-    console.log('Image URL:', finalImageUrl);
-    console.log('Serving Size:', servingSize);
-    console.log('Prep Time:', prepTime);
-    console.log('Calories Per Serving:', caloriesPerServing);
 
     if (title.trim() && ingredients.length > 0 && instructions.trim() && prepTime.trim() && servingSize > 0 && caloriesPerServing > 0) {
-      console.log('All fields are valid. Adding recipe...');
-      onAddRecipe({ title, ingredients, instructions, imageUrl: finalImageUrl, servingSize, prepTime, caloriesPerServing });
+      console.log('Form is valid. Submitting...');
+      const newRecipe: Recipe = {
+        id: '', // Assuming id will be generated elsewhere
+        title,
+        ingredients,
+        instructions,
+        imageUrl: finalImageUrl,
+        servingSize,
+        prepTime,
+        caloriesPerServing,
+      };
+
+      onAddRecipe(newRecipe);
       setTitle('');
       setIngredients([]);
       setInstructions('');
