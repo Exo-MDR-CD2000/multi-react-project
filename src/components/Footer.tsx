@@ -1,4 +1,5 @@
 import React from 'react';
+import FooterCurrentYear from '../utilities/FooterCurrentYear';
 // create bootstrap footer here and do not use react-bootstrap dependency. regular bootstrap is fine.
 
 /**
@@ -10,8 +11,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-light text-center text-lg-start">
       <div className="container p-4">
-        <div className="text-center p-3">
-          © 2023 Jose Guillen
+        <div className="text-center p-3 footer-text">
+          © {FooterCurrentYear()} Jose Guillen
         </div>
       </div>
     </footer>
