@@ -99,6 +99,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
             <label htmlFor="recipeTitle" className="form-label">Recipe Title</label>
             <input
               type="text"
+              placeholder="Enter Recipe Title"
               id="recipeTitle"
               className="form-control"
               value={title}
@@ -110,6 +111,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
             <label htmlFor="imageUrl" className="form-label">Image URL</label>
             <input
               type="text"
+              placeholder="Enter Image URL (or leave blank for placeholder)"
               id="imageUrl"
               className="form-control"
               value={imageUrl}
@@ -122,6 +124,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
             <label htmlFor="servingSize" className="form-label">Serving Size</label>
             <input
               type="number"
+              placeholder="Enter Serving Size"
               id="servingSize"
               className="form-control"
               value={servingSize}
@@ -133,6 +136,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
             <label htmlFor="prepTime" className="form-label">Preparation Time</label>
             <input
               type="text"
+              placeholder="Enter Preparation Time"
               id="prepTime"
               className="form-control"
               value={prepTime}
@@ -156,6 +160,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
           <div className="col-md-6">
             <label htmlFor="instructions" className="form-label">Instructions</label>
             <textarea
+              placeholder="Enter Recipe Instructions (separated by line breaks)"
               id="instructions"
               className="form-control"
               value={instructions}
@@ -170,6 +175,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
             <div className="input-group">
               <input
                 type="text"
+                placeholder="Enter Ingredient and press Enter"
                 id="ingredientInput"
                 className="form-control"
                 value={ingredientInput}
