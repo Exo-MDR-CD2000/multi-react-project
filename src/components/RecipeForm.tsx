@@ -34,6 +34,8 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
   const [prepTime, setPrepTime] = useState('');
   const [caloriesPerServing, setCaloriesPerServing] = useState(0);
 
+  const BASE_IMAGE_URL = 'https://placehold.co/600x400';
+
   /**
    * Handles adding an ingredient to the ingredients list.
    * 
@@ -63,8 +65,19 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
    */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (title.trim() && ingredients.length > 0 && instructions.trim() && imageUrl.trim() && prepTime.trim() && servingSize > 0 && caloriesPerServing > 0) {
-      onAddRecipe({ title, ingredients, instructions, imageUrl, servingSize, prepTime, caloriesPerServing });
+    const finalImageUrl = imageUrl.trim() || BASE_IMAGE_URL;
+    console.log('Form Submitted');
+    console.log('Title:', title);
+    console.log('Ingredients:', ingredients);
+    console.log('Instructions:', instructions);
+    console.log('Image URL:', finalImageUrl);
+    console.log('Serving Size:', servingSize);
+    console.log('Prep Time:', prepTime);
+    console.log('Calories Per Serving:', caloriesPerServing);
+
+    if (title.trim() && ingredients.length > 0 && instructions.trim() && prepTime.trim() && servingSize > 0 && caloriesPerServing > 0) {
+      console.log('All fields are valid. Adding recipe...');
+      onAddRecipe({ title, ingredients, instructions, imageUrl: finalImageUrl, servingSize, prepTime, caloriesPerServing });
       setTitle('');
       setIngredients([]);
       setInstructions('');
@@ -72,6 +85,8 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
       setServingSize(1);
       setPrepTime('');
       setCaloriesPerServing(0);
+    } else {
+      console.error('One or more fields are invalid. Please check the form.');
     }
   };
 
@@ -99,7 +114,6 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
               className="form-control"
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
-              required
             />
           </div>
         </div>
