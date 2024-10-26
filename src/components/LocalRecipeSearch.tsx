@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 
-// create a component that will handle the search functionality
-// this will be allow the user to search for recipes by name
-//figure out how to pass the search term to the parent component
-
-//Overall component is an example of lifting state up since the search term is being passed to the parent component (App.tsx)
+// Overall component is an example of lifting state up since the search term is being passed to the parent component (App.tsx)
 // Also a demonstration of controlled components/input since the search term is being stored in the state of the LocalRecipeSearch component
 
 /**
@@ -41,17 +37,23 @@ const LocalRecipeSearch: React.FC<LocalRecipeSearchProps> = ({ onSearch }) => {
         onSearch(searchTerm);
     };
 
+    const handleReset = () => {
+        setSearchTerm('');
+        onSearch('');
+    };
+
     return (
         <div className="search-bar">
           <form onSubmit={handleSubmit} className="input-group">
           <input
             type="text"
-            placeholder="Search recipes by name..."
+            placeholder="Search recipes by name or reset to view all..."
             value={searchTerm}
             onChange={handleChange}
             className="form-control"
           />
           <button type="submit" className="btn btn-primary">Search</button>
+          <button type="button" className="btn btn-secondary" onClick={handleReset}>Reset</button>
           </form>
         </div>
       );
