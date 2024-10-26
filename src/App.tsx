@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { fetchRecipes, addRecipe as addRecipeToAPI, updateRecipe as updateRecipeToAPI, deleteRecipe as deleteRecipeFromAPI } from './services/recipeService';
-import { Recipe } from './model/Recipes.ts';
+import { fetchRecipes, addRecipe as addRecipeToAPI, updateRecipe as updateRecipeToAPI, deleteRecipe as deleteRecipeFromAPI } from './services/recipeService.ts';
+import { Recipe } from './model/recipes.ts';
 import RecipeList from './components/RecipeList.tsx';
 import RecipeForm from './components/RecipeForm.tsx';
 
-import RecipeUpdateModal from './components/recipeUpdateModal.tsx';
+import RecipeUpdateModal from './components/RecipeUpdateModal.tsx';
+
+import ScrollBackToTop from './components/ScrollBackToTop.tsx';
+
+// import LocalRecipeSearch from './components/LocalRecipeSearch.tsx';
 
 import './css/App.css';
 
@@ -18,6 +22,7 @@ const App: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
+  // const [searchTerm, setSearchTerm] = useState('');
 
   /**
    * Fetch recipes from the API when the component mounts.
@@ -26,6 +31,7 @@ const App: React.FC = () => {
    * useEffects are perfect for fetching data from an API, setting up subscriptions, or manually changing the DOM in React components.
    */
   useEffect(() => {
+    console.log('useEffect called');
     const getRecipes = async () => {
       try {
         const fetchedRecipes = await fetchRecipes();
@@ -97,6 +103,24 @@ const App: React.FC = () => {
     setSelectedRecipe(null);
   };
 
+  /**
+   * Handles the search term change event.
+   * Updates the search term state.
+   * 
+   * @param {string} term - The current search term.
+   */
+  // const handleSearch = (term: string) => {
+  //   setSearchTerm(term);
+  // };
+
+  /**
+   * Filters the recipes based on the search term.
+   * 
+   * @returns {Recipe[]} The filtered list of recipes.
+   */
+  // const filteredRecipes = recipes.filter(recipe => 
+  //   recipe.title.toLowerCase().includes(searchTerm.toLowerCase()));
+
   return (
     <div className="d-flex justify-content-center">
       <div className="container mt-4">
@@ -105,9 +129,14 @@ const App: React.FC = () => {
           <div className="col-12">
             <RecipeForm onAddRecipe={addRecipe} />
           </div>
+          {/* <div className="col-6 mt-4">
+            <LocalRecipeSearch onSearch={handleSearch} />
+          </div> */}
           <div className="col-12 mt-4">
+          <hr />
             <RecipeList
               recipes={recipes}
+              // recipes={filteredRecipes}
               onUpdateClick={handleUpdateClick}
               onDeleteClick={deleteRecipe}
             />
@@ -119,6 +148,7 @@ const App: React.FC = () => {
           onClose={handleCloseModal}
           onUpdate={updateRecipe}
         />
+        <ScrollBackToTop />
       </div>
     </div>
   );

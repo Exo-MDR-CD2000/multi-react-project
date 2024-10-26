@@ -1,7 +1,10 @@
 // make a fetch request to the local db for all the dataimport { Recipe } from './Recipes';
-import { Recipe } from '../model/Recipes';
+import { Recipe } from '../model/recipes.ts';
+import config from '../config.ts';
 
-const BASE_API_URL = `https://${import.meta.env.VITE_API_KEY}.mockapi.io/recipes/v1/`;
+// const BASE_API_URL = `https://${import.meta.env.VITE_API_KEY}.mockapi.io/recipes/v1/`;
+const BASE_API_URL = config.MOCKAPI_BASE_URL;
+// console.log('BASE_API_URL:', BASE_API_URL);
 
 /**TODO - remember to document how to make env variables work within a react project using vite
  * create a separate env file for the api key
@@ -11,6 +14,7 @@ const BASE_API_URL = `https://${import.meta.env.VITE_API_KEY}.mockapi.io/recipes
  */ 
 
 export const fetchRecipes = async (): Promise<Recipe[]> => {
+    console.log('fetchRecipes called');
     try {
         const response = await fetch(`${BASE_API_URL}recipes`);
         if (!response.ok) {

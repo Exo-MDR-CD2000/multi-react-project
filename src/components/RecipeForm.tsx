@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Recipe } from '../model/recipes';
 
 /**
  * Props for the RecipeForm component.
@@ -6,15 +7,7 @@ import React, { useState } from 'react';
  * @property {Function} onAddRecipe - Function to handle adding a new recipe.
  */
 interface RecipeFormProps {
-  onAddRecipe: (recipe: {
-    title: string;
-    ingredients: string[];
-    instructions: string;
-    imageUrl: string;
-    servingSize: number;
-    prepTime: string;
-    caloriesPerServing: number;
-  }) => void;
+  onAddRecipe: (recipe: Recipe) => void;
 }
 
 /**
@@ -34,6 +27,8 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
   const [prepTime, setPrepTime] = useState('');
   const [caloriesPerServing, setCaloriesPerServing] = useState(0);
 
+  const BASE_IMAGE_URL = 'https://placehold.co/600x400';
+
   /**
    * Handles adding an ingredient to the ingredients list.
    * 
@@ -48,14 +43,45 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
   };
 
   /**
+   * Handles removing an ingredient from the ingredients list.
+   * 
+   * @param {number} index - The index of the ingredient to remove.
+   */
+  const handleRemoveIngredient = (index: number) => {
+    setIngredients(ingredients.filter((_, i) => i !== index));
+  };
+
+  /**
    * Handles form submission to add a new recipe.
    * 
    * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
    */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (title.trim() && ingredients.length > 0 && instructions.trim() && imageUrl.trim() && prepTime.trim() && servingSize > 0 && caloriesPerServing > 0) {
-      onAddRecipe({ title, ingredients, instructions, imageUrl, servingSize, prepTime, caloriesPerServing });
+    const finalImageUrl = imageUrl.trim() || BASE_IMAGE_URL;
+
+    console.log('recipe title:', title, 
+      'ingredients:', ingredients, 
+      'instructions:', instructions, 
+      'image:', finalImageUrl, 
+      'serving size:', servingSize, 
+      'prep time:', prepTime, 
+      'calories per serving:', caloriesPerServing);
+
+    if (title.trim() && ingredients.length > 0 && instructions.trim() && prepTime.trim() && servingSize > 0 && caloriesPerServing > 0) {
+      console.log('Form is valid. Submitting...');
+      const newRecipe: Recipe = {
+        id: '', // Assuming id will be generated elsewhere
+        title,
+        ingredients,
+        instructions,
+        imageUrl: finalImageUrl,
+        servingSize,
+        prepTime,
+        caloriesPerServing,
+      };
+
+      onAddRecipe(newRecipe);
       setTitle('');
       setIngredients([]);
       setInstructions('');
@@ -63,6 +89,8 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
       setServingSize(1);
       setPrepTime('');
       setCaloriesPerServing(0);
+    } else {
+      console.error('One or more fields are invalid. Please check the form.');
     }
   };
 
@@ -75,6 +103,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
             <label htmlFor="recipeTitle" className="form-label">Recipe Title</label>
             <input
               type="text"
+              placeholder="Enter Recipe Title"
               id="recipeTitle"
               className="form-control"
               value={title}
@@ -86,11 +115,11 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
             <label htmlFor="imageUrl" className="form-label">Image URL</label>
             <input
               type="text"
+              placeholder="Enter Image URL (or leave blank for placeholder)"
               id="imageUrl"
               className="form-control"
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
-              required
             />
           </div>
         </div>
@@ -99,6 +128,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
             <label htmlFor="servingSize" className="form-label">Serving Size</label>
             <input
               type="number"
+              placeholder="Enter Serving Size"
               id="servingSize"
               className="form-control"
               value={servingSize}
@@ -110,6 +140,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
             <label htmlFor="prepTime" className="form-label">Preparation Time</label>
             <input
               type="text"
+              placeholder="Enter Preparation Time"
               id="prepTime"
               className="form-control"
               value={prepTime}
@@ -133,6 +164,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
           <div className="col-md-6">
             <label htmlFor="instructions" className="form-label">Instructions</label>
             <textarea
+              placeholder="Enter Recipe Instructions (separated by line breaks)"
               id="instructions"
               className="form-control"
               value={instructions}
@@ -144,19 +176,27 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
         <div className="row mb-3">
           <div className="col-md-12">
             <label htmlFor="ingredientInput" className="form-label">Add Ingredient</label>
-            <input
-              type="text"
-              id="ingredientInput"
-              className="form-control"
-              value={ingredientInput}
-              onChange={(e) => setIngredientInput(e.target.value)}
-            />
-            <button className="btn btn-secondary mt-2" onClick={handleAddIngredient}>Add Ingredient</button>
+            <div className="input-group">
+              <input
+                type="text"
+                placeholder="Enter Ingredient and press Enter"
+                id="ingredientInput"
+                className="form-control"
+                value={ingredientInput}
+                onChange={(e) => setIngredientInput(e.target.value)}
+              />
+              <button className="btn btn-secondary" onClick={handleAddIngredient}>Add Ingredient</button>
+            </div>
           </div>
         </div>
         <ul className="list-group mb-3">
           {ingredients.map((ingredient, index) => (
-            <li key={index} className="list-group-item">{ingredient}</li>
+            <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+              {ingredient}
+              <button type="button" className="btn btn-danger btn-sm" onClick={() => handleRemoveIngredient(index)}>
+                <i className="bi bi-x"></i>
+              </button>
+            </li>
           ))}
         </ul>
         <button type="submit" className="btn btn-primary">Submit Recipe</button>

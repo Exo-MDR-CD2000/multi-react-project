@@ -1,12 +1,12 @@
-# React Site WIP Final Project
-Static React project based around cooking recipes.
+# React Site WIP Final Project: Week 3
+React project based around cooking recipes.
 ## Description
 
-This is assignment is a month long final project based on React and Typescript. The foundation for this project has been made and will be based around user created cooking recipes that can be saved to a local backend like MockAPI. The example data has already been made and MockAPI is already in use. 
+This assignment is a month long final project based on React and Typescript. The foundation for this project has been made and will be based around user created cooking recipes that can be saved to a local backend like MockAPI. The example data has already been made and MockAPI is already in use. 
 
-For the second week, we have to implement all of the CRUD operations. I did went ahead a bit since my project makes use of forms and useEffects, but the static data is still present. I'm mainly lifting up state because the update and delete functions are defined in the app component and are then passed down to the RecipeList and so on. The data from the smallest recipe card goes up and is not prop drilling. I incorrectly stated in the video demonstration that i'm using prop drilling and not lifting up state. The example data shown in the video demo will not appear because an env file is used to hide the MockAPI key. I believe this also makes the recipe form broken as well due to env file.
+For the third week, we had to implement react forms. The forms are in working order and allow a user to create new recipes. The recipes are appended to the recipe list and have full CRUD operations via an update modal component. There is also a simple recipe search form function and a reset button to clear the search state to default values. 
 
-EDIT: Here is the env key: VITE_API_KEY=6711ad184eca2acdb5f563ed
+Styling was revamped a bit and now all recipe cards have transition and hover effects. Recipe cards can now be collapsed with the current collapsed state managed by localstorage. Cards can maintain their collapsed state after page refresh. A scroll back to top button was added to account for longer recipe lists. The mockAPI key was moved into a separate config file instead of using environmental files. 
 
 ## Project Requirements
 
@@ -15,15 +15,17 @@ EDIT: Here is the env key: VITE_API_KEY=6711ad184eca2acdb5f563ed
 
 At this point, your project must meet these new requirements:
 
-- A user can create new items (the new items will all have the same data)
-- A user can delete items
-- A user can update at least one property on the items
+- It has either a create form or an update form with at least 2 inputs
 
 As well as the requirements from last week:
 
 - It has at least 3 React components
 - It’s displaying the test data
 - It’s using at least 1 prop
+
+- A user can create new items (the new items will all have the same data)
+- A user can delete items
+- A user can update at least one property on the items
 
 ## Usage
 
@@ -45,9 +47,10 @@ To get a local copy up and running follow these simple steps. This also assumes 
     ```sh
     npm run dev
     ```
-5. **Local API data is hosted on MockAPI and requires no further action**
+5. **API data is hosted on MockAPI and requires no further action**
 
 ## Link(s)
 
 - Promineo Videos and Independent Research
+- Instructor help from George Heeres about api config file use
 - [Github Repo](https://github.com/Exo-MDR-CD2000/multi-react-project)
