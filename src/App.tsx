@@ -6,6 +6,8 @@ import RecipeForm from './components/RecipeForm.tsx';
 
 import RecipeUpdateModal from './components/RecipeUpdateModal.tsx';
 
+import ScrollBackToTop from './components/ScrollBackToTop.tsx';
+
 // import LocalRecipeSearch from './components/LocalRecipeSearch.tsx';
 
 import './css/App.css';
@@ -145,6 +147,7 @@ const App: React.FC = () => {
           onClose={handleCloseModal}
           onUpdate={updateRecipe}
         />
+        <ScrollBackToTop />
       </div>
     </div>
   );

@@ -29,6 +29,24 @@
   }
 }
 
+#scrollToTop {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 // .collapsed-card .card-body {
 //   display: none;
 // }
