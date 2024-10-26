@@ -91,6 +91,7 @@ const RecipeUpdateModal: React.FC<RecipeUpdateModalProps> = ({ show, recipe, onC
                 <label htmlFor="recipeTitle" className="form-label">Recipe Title</label>
                 <input
                   type="text"
+                  placeholder="Enter New Recipe Title"
                   id="recipeTitle"
                   className="form-control"
                   value={title}
@@ -102,6 +103,7 @@ const RecipeUpdateModal: React.FC<RecipeUpdateModalProps> = ({ show, recipe, onC
                 <label htmlFor="imageUrl" className="form-label">Image URL</label>
                 <input
                   type="text"
+                  placeholder="Enter New Image URL"
                   id="imageUrl"
                   className="form-control"
                   value={imageUrl}
@@ -124,6 +126,7 @@ const RecipeUpdateModal: React.FC<RecipeUpdateModalProps> = ({ show, recipe, onC
                 <label htmlFor="prepTime" className="form-label">Preparation Time</label>
                 <input
                   type="text"
+                  placeholder="Enter New Preparation Time"
                   id="prepTime"
                   className="form-control"
                   value={prepTime}
@@ -146,6 +149,7 @@ const RecipeUpdateModal: React.FC<RecipeUpdateModalProps> = ({ show, recipe, onC
                 <label htmlFor="instructions" className="form-label">Instructions</label>
                 <textarea
                   id="instructions"
+                  placeholder="Enter New Instructions"
                   className="form-control"
                   value={instructions}
                   onChange={(e) => setInstructions(e.target.value)}
