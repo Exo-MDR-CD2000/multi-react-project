@@ -1,156 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { fetchRecipes, addRecipe as addRecipeToAPI, updateRecipe as updateRecipeToAPI, deleteRecipe as deleteRecipeFromAPI } from './services/recipeService.ts';
-import { Recipe } from './model/recipes.ts';
-import RecipeList from './components/RecipeList.tsx';
-import RecipeForm from './components/RecipeForm.tsx';
-
-import RecipeUpdateModal from './components/RecipeUpdateModal.tsx';
-
-import ScrollBackToTop from './components/ScrollBackToTop.tsx';
-
-// import LocalRecipeSearch from './components/LocalRecipeSearch.tsx';
-
-// import './css/App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import MyRecipesPage from './pages/MyRecipesPage';
+import ContactPage from './pages/ContactPage';
+import AboutPage from './pages/AboutPage';
+import ScrollBackToTop from './components/ScrollBackToTop';
 
 /**
- * The main App component.
- * This component manages the state and methods for fetching, adding, updating, and deleting recipes.
- * @returns {JSX.Element} The rendered component.
+ * The main App component that sets up routing for the application.
+ * Provides the entry point for the application and defines the routes.
+ * 
+ * @returns {JSX.Element} The rendered App component.
  */
-
 const App: React.FC = () => {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
-  const [showUpdateModal, setShowUpdateModal] = useState(false);
-  // const [searchTerm, setSearchTerm] = useState('');
-
-  /**
-   * Fetch recipes from the API when the component mounts.
-   * We use the useEffect hook to fetch the recipes when the component mounts.
-   * It's an empty dependency array, so it only runs once when the component mounts (uses empty [] as the second argument to useEffect).
-   * useEffects are perfect for fetching data from an API, setting up subscriptions, or manually changing the DOM in React components.
-   */
-  useEffect(() => {
-    console.log('useEffect called');
-    const getRecipes = async () => {
-      try {
-        const fetchedRecipes = await fetchRecipes();
-        setRecipes(fetchedRecipes);
-      } catch (error) {
-        console.error('Failed to fetch recipes:', error);
-      }
-    };
-    getRecipes();
-  }, []);
-
-  /**
-   * Adds a new recipe to the list of recipes.
-   * @param {Partial<Recipe>} recipe - the recipe to add
-   */
-  const addRecipe = async (recipe: Partial<Recipe>) => {
-    try {
-      const newRecipe = await addRecipeToAPI(recipe);
-      setRecipes([...recipes, newRecipe]);
-    } catch (error) {
-      console.error('Failed to add recipe:', error);
-    }
-  };
-
-  /**
-   * Updates an existing recipe.
-   * This function is passed to the RecipeUpdateModal component.
-   * we have to do prop drilling to pass the updateRecipe function to the RecipeUpdateModal component
-   * @param {Recipe} updatedRecipe - The recipe to update.
-   */
-  const updateRecipe = async (updatedRecipe: Recipe) => {
-    try {
-      const newRecipe = await updateRecipeToAPI(updatedRecipe);
-      setRecipes(recipes.map(recipe => recipe.id === newRecipe.id ? newRecipe : recipe));
-    } catch (error) {
-      console.error('Failed to update recipe:', error);
-    }
-  };
-
-  /**
-   * Deletes a recipe.
-   * 
-   * @param {string} id - The ID of the recipe to delete.
-   */
-  const deleteRecipe = async (id: string) => {
-    try {
-      await deleteRecipeFromAPI(id);
-      setRecipes(recipes.filter(recipe => recipe.id !== id));
-    } catch (error) {
-      console.error('Failed to delete recipe:', error);
-    }
-  };
-
-  /**
-   * Handles the click event to update a recipe.
-   * 
-   * @param {Recipe} recipe - The recipe to update.
-   */
-  const handleUpdateClick = (recipe: Recipe) => {
-    setSelectedRecipe(recipe);
-    setShowUpdateModal(true);
-  };
-
-  /**
-   * Handles the event to close the update modal.
-   */
-  const handleCloseModal = () => {
-    setShowUpdateModal(false);
-    setSelectedRecipe(null);
-  };
-
-  /**
-   * Handles the search term change event.
-   * Updates the search term state.
-   * 
-   * @param {string} term - The current search term.
-   */
-  // const handleSearch = (term: string) => {
-  //   setSearchTerm(term);
-  // };
-
-  /**
-   * Filters the recipes based on the search term.
-   * 
-   * @returns {Recipe[]} The filtered list of recipes.
-   */
-  // const filteredRecipes = recipes.filter(recipe => 
-  //   recipe.title.toLowerCase().includes(searchTerm.toLowerCase()));
-
   return (
-    <div className="d-flex justify-content-center">
-      <div className="container mt-4">
-        <h1 className="text-center">My Recipe App</h1>
-        <div className="row">
-          <div className="col-12">
-            <RecipeForm onAddRecipe={addRecipe} />
-          </div>
-          {/* <div className="col-6 mt-4">
-            <LocalRecipeSearch onSearch={handleSearch} />
-          </div> */}
-          <div className="col-12 mt-4">
-          <hr />
-            <RecipeList
-              recipes={recipes}
-              // recipes={filteredRecipes}
-              onUpdateClick={handleUpdateClick}
-              onDeleteClick={deleteRecipe}
-            />
-          </div>
+    // Wrap the entire application in the Router component to enable routing
+    <Router>
+      <div className="d-flex justify-content-center">
+        <div className="container mt-4">
+          <h1 className="text-center">My Recipe App</h1>
+          {/* Define the Routes component to specify the different routes in the application */}
+          <Routes>
+            {/* Define a route for the HomePage component */}
+            <Route path="/" element={<HomePage />} />
+            {/* Define a route for the MyRecipesPage component */}
+            <Route path="/my-recipes" element={<MyRecipesPage />} />
+            {/* Define a route for the ContactPage component */}
+            <Route path="/contact" element={<ContactPage />} />
+            {/* Define a route for the AboutPage component */}
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
+          {/* Include the ScrollBackToTop component to handle scrolling behavior */}
+          <ScrollBackToTop />
         </div>
-        <RecipeUpdateModal
-          show={showUpdateModal}
-          recipe={selectedRecipe}
-          onClose={handleCloseModal}
-          onUpdate={updateRecipe}
-        />
-        <ScrollBackToTop />
       </div>
-    </div>
+    </Router>
   );
 };
 
@@ -212,8 +96,13 @@ const App: React.FC = () => {
 
 export default App;
 
+----------------------------------------------------------------------------------------------------------------------------
 
+Routing Setup for App Component:
 
+Moved Components: The main components (RecipeList, RecipeForm, RecipeUpdateModal) were moved from App.tsx to HomePage.tsx.
+Added Routes: Set up routing using react-router-dom with Routes and Route components.
+Designated HomePage: The HomePage component is designated as the homepage (path="/").
 
 
 
