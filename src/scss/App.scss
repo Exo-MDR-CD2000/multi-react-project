@@ -18,5 +18,9 @@
 // .separator {
 //   width: 2px;
 //   background-color: black;
-//   justify-content: center;
 // }
+
+.card .collapse {
+    transition: height 0.3s ease;
+  }
+  
