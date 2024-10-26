@@ -4,6 +4,7 @@ import FooterCurrentYear from '../utilities/FooterCurrentYear';
 
 /**
  * The Footer component that provides footer content.
+ * Imported FooterCurrentYear helper function to display the current year.
  * 
  * @returns {JSX.Element} The rendered Footer component.
  */
