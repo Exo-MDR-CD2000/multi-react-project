@@ -48,6 +48,15 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
   };
 
   /**
+   * Handles removing an ingredient from the ingredients list.
+   * 
+   * @param {number} index - The index of the ingredient to remove.
+   */
+  const handleRemoveIngredient = (index: number) => {
+    setIngredients(ingredients.filter((_, i) => i !== index));
+  };
+
+  /**
    * Handles form submission to add a new recipe.
    * 
    * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
@@ -144,19 +153,26 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
         <div className="row mb-3">
           <div className="col-md-12">
             <label htmlFor="ingredientInput" className="form-label">Add Ingredient</label>
-            <input
-              type="text"
-              id="ingredientInput"
-              className="form-control"
-              value={ingredientInput}
-              onChange={(e) => setIngredientInput(e.target.value)}
-            />
-            <button className="btn btn-secondary mt-2" onClick={handleAddIngredient}>Add Ingredient</button>
+            <div className="input-group">
+              <input
+                type="text"
+                id="ingredientInput"
+                className="form-control"
+                value={ingredientInput}
+                onChange={(e) => setIngredientInput(e.target.value)}
+              />
+              <button className="btn btn-secondary" onClick={handleAddIngredient}>Add Ingredient</button>
+            </div>
           </div>
         </div>
         <ul className="list-group mb-3">
           {ingredients.map((ingredient, index) => (
-            <li key={index} className="list-group-item">{ingredient}</li>
+            <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+              {ingredient}
+              <button type="button" className="btn btn-danger btn-sm" onClick={() => handleRemoveIngredient(index)}>
+                <i className="bi bi-x"></i>
+              </button>
+            </li>
           ))}
         </ul>
         <button type="submit" className="btn btn-primary">Submit Recipe</button>
