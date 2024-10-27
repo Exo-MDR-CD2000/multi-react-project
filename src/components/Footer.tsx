@@ -1,5 +1,5 @@
 import React from 'react';
-import FooterCurrentYear from '../utilities/FooterCurrentYear';
+import FooterCurrentYear from '../utilities/footerCurrentYear';
 // create bootstrap footer here and do not use react-bootstrap dependency. regular bootstrap is fine.
 
 /**
