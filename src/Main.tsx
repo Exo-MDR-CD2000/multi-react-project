@@ -15,6 +15,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min'; // Import Bootstrap JS
 import './css/index.css'
 import './css/App.css'
 
+// Remove this after testing all breakpoints
+import './css/bootstrap-breakpoint.css'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
