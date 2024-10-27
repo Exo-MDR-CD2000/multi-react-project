@@ -10,10 +10,24 @@ import FooterCurrentYear from '../utilities/footerCurrentYear';
  */
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-light text-center text-lg-start">
-      <div className="container p-4">
-        <div className="text-center p-3 footer-text">
-          © {FooterCurrentYear()} Jose Guillen
+    <footer className="container text-center text-lg-start border-2 border-top my-4">
+      <div className="row">
+        <div className="col p-4 d-flex justify-content-between align-items-center">
+          <div className="footer-text">
+            © {FooterCurrentYear()} Jose Guillen
+          </div>
+          <ul className="list-unstyled d-flex mb-0">
+            <li className="ms-3">
+              <a className="text-body-secondary" href="https://github.com/Exo-MDR-CD2000" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                <i className="bi bi-github" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li className="ms-3">
+              <a className="text-body-secondary" href="https://www.linkedin.com/in/jag1997/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                <i className="bi bi-linkedin" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>
@@ -21,3 +35,51 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
+
+/** 
+ * 
+ * 
+ * Footer below is bootstrap template for reference
+ 
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+      <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
+  </footer>
+
+   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  // nice small footer here to test tomorrow
+
+  <footer className="container text-center text-lg-start border-2 border-top py-2 my-4">
+      <div className="row">
+        <div className="col d-flex justify-content-between align-items-center py-2">
+          <div className="footer-text">
+            © {FooterCurrentYear()} Jose Guillen
+          </div>
+          <ul className="list-unstyled d-flex mb-0">
+            <li className="ms-3">
+              <a className="text-body-secondary" href="https://github.com/Exo-MDR-CD2000" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                <i className="bi bi-github" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li className="ms-3">
+              <a className="text-body-secondary" href="https://www.linkedin.com/in/jag1997/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                <i className="bi bi-linkedin" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+*/
