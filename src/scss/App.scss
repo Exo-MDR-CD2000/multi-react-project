@@ -1,6 +1,6 @@
-.location-route-test {
-  color: red;
-}
+// .location-route-test {
+//   color: red;
+// }
 
 // -------- Recipe Card Component --------
 
@@ -13,12 +13,20 @@
   }
 }
 
+// -------- Toast Notification Component --------
+
+// .toast-container {
+//   z-index: 1050;
+// }
+
+
 // -------- ScrollBackToTop Component --------
 
 #scrollToTop {
     border-radius: 50%;
     width: 50px;
     height: 50px;
+    // z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,6 +40,7 @@
         visibility: visible;
     }
 }
+
 // -------- About Me Page --------
 
 #exotic-bird {
