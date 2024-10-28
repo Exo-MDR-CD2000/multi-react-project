@@ -92,7 +92,7 @@ const MyRecipesPage: React.FC = () => {
     recipe.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
-    <div className='container'>
+    <div className='container mb-4'>
       <div className="row justify-content-center text-center mb-2">
           <div className="col-11">
             <div className="card border-0">

@@ -100,7 +100,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className='mb-4'>
       {/* Introduction Card */}
       <div className="row justify-content-center text-center mb-2">
           <div className="col-11">
