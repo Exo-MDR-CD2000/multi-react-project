@@ -78,12 +78,14 @@ const RecipeUpdateModal: React.FC<RecipeUpdateModalProps> = ({ show, recipe, onC
   if (!show || !recipe) return null;
 
   return (
-    <div className="modal show d-block" tabIndex={-1}>
+    <div className="modal show d-block bg-dark" tabIndex={-1}>
       <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
+        <div className="modal-content bg-light">
+          <div className="modal-header justify-content-between">
             <h5 className="modal-title">Update Recipe</h5>
-            <button type="button" className="btn-close" onClick={onClose}></button>
+            <button type="button" className="btn btn-danger btn-sm" onClick={onClose}>
+              <i className="bi bi-x"></i>
+            </button>
           </div>
           <div className="modal-body">
             <form onSubmit={handleSubmit}>
