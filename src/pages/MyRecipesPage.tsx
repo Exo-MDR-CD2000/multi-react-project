@@ -5,6 +5,12 @@ import RecipeTable from '../components/RecipeTable';
 import RecipeUpdateModal from '../components/RecipeUpdateModal';
 import LocalRecipeSearch from '../components/LocalRecipeSearch';
 
+/**
+ * MyRecipesPage component to display and manage the user's saved recipes.
+ * Reuses the RecipeTable, RecipeUpdateModal, and LocalRecipeSearch components.
+ *
+ * @returns {JSX.Element} The rendered MyRecipesPage component.
+ */
 const MyRecipesPage: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
@@ -23,6 +29,11 @@ const MyRecipesPage: React.FC = () => {
     getRecipes();
   }, []);
 
+  /**
+   * Handles updating a recipe.
+   *
+   * @param {Recipe} updatedRecipe - The updated recipe object.
+   */
   const updateRecipe = async (updatedRecipe: Recipe) => {
     try {
       const newRecipe = await updateRecipeToAPI(updatedRecipe);
@@ -32,6 +43,11 @@ const MyRecipesPage: React.FC = () => {
     }
   };
 
+   /**
+   * Handles deleting a recipe.
+   *
+   * @param {string} id - The ID of the recipe to delete.
+   */
   const deleteRecipe = async (id: string) => {
     try {
       await deleteRecipeFromAPI(id);
@@ -41,16 +57,29 @@ const MyRecipesPage: React.FC = () => {
     }
   };
 
+   /**
+   * Handles the click event to update a recipe.
+   *
+   * @param {Recipe} recipe - The recipe object to update.
+   */
   const handleUpdateClick = (recipe: Recipe) => {
     setSelectedRecipe(recipe);
     setShowUpdateModal(true);
   };
 
+  /**
+   * Handles closing the update modal.
+   */
   const handleCloseModal = () => {
     setShowUpdateModal(false);
     setSelectedRecipe(null);
   };
 
+  /**
+   * Handles the search term input.
+   *
+   * @param {string} term - The search term entered by the user.
+   */
   const handleSearch = (term: string) => {
     setSearchTerm(term);
   };

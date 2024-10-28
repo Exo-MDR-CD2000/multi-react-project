@@ -1,6 +1,10 @@
 import React from 'react';
 import { Recipe } from '../model/recipes';
 
+/**
+ * Props for the RecipeTableRow component.
+ * @typedef {Object} RecipeTableRowProps
+ */
 interface RecipeTableRowProps {
     recipe: Recipe;
     onUpdateClick: (recipe: Recipe) => void;
@@ -8,6 +12,12 @@ interface RecipeTableRowProps {
     onImageClick: (imageUrl: string, recipeTitle: string) => void;
 }
 
+/** 
+ * RecipeTableRow component to display a single recipe in a table row.
+ * Defines the structure of a single row in the RecipeTable component.
+ * @param {RecipeTableRowProps} props - The properties for the RecipeTableRow component.
+ * @returns {JSX.Element} The rendered RecipeTableRow component.
+*/
 const RecipeTableRow: React.FC<RecipeTableRowProps> = ({ recipe, onUpdateClick, onDeleteClick, onImageClick }) => {
     return (
         <tr>
