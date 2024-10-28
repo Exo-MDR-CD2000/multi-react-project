@@ -15,9 +15,12 @@
 
 // -------- Toast Notification Component --------
 
-// .toast-container {
-//   z-index: 1050;
-// }
+.toast-container {
+  position: fixed;
+  bottom: 80px; /* Adjust this based on the size of the scroll button */
+  right: 10px;
+  z-index: 1050; /* Higher z-index to ensure it appears above other elements */
+}
 
 
 // -------- ScrollBackToTop Component --------
@@ -26,14 +29,18 @@
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    // z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    z-index: 1040;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
     font-size: 24px;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     opacity: 0;
     visibility: hidden;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 1040; /* Lower than the toast so it stays behind */
 
     &.visible {
         opacity: 1;
