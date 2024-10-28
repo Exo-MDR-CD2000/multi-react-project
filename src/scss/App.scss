@@ -32,10 +32,10 @@
   display: block; /* Show backdrop when modal is open */
 }
 
-/* Ensure modal itself appears above the backdrop */
-.modal {
-  z-index: 1060;
-}
+// /* Ensure modal itself appears above the backdrop */
+// .modal {
+//   z-index: 1060;
+// }
 
 // -------- Toast Notification Component --------
 

@@ -23,11 +23,6 @@
   display: block; /* Show backdrop when modal is open */
 }
 
-/* Ensure modal itself appears above the backdrop */
-.modal {
-  z-index: 1060;
-}
-
 .toast-container {
   position: fixed;
   bottom: 80px; /* Adjust this based on the size of the scroll button */
