@@ -22,7 +22,7 @@ const App: React.FC = () => {
         {/* Include the Navbar component to provide navigation links */}
         <Navbar />
         <div className="container mt-4">
-          <h1 className="text-center">My Recipe App</h1>
+          {/* <h1 className="text-center">My Recipe App</h1> */}
           {/* Define the Routes component to specify the different routes in the application */}
           <Routes>
             {/* Define a route for the HomePage component */}
