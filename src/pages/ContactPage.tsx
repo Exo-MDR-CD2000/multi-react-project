@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactPage: React.FC = () => {
   return (
-    <section className="py-5 vh-100">
+    <section className=" container py-5 vh-100">
       <div className="row justify-content-center">
         <div className="col-12 col-md-8 text-center">
           <h2 className="mb-4">Contact Me</h2>
