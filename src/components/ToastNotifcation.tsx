@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Toast, ToastContainer } from 'react-bootstrap';
 
+
+//TODO: Check on z index to separate the toast notification from the scroll back to top button. (OPTIONAL)
 /**
  * ToastNotification component properties
  * @interface ToastNotificationProps
