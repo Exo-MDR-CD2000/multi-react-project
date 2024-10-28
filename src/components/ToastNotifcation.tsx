@@ -33,7 +33,7 @@ const ToastNotification: React.FC<ToastNotificationProps> = ({ show, message, va
   const textColorClass = variant === 'warning' ? 'text-dark' : 'text-white';
 
   return (
-    <ToastContainer className=" position-fixed bottom-0 end-0 p-3">
+    <ToastContainer className="p-3">
       <Toast show={showToast} onClose={onClose} delay={3000} autohide className={`bg-${variant} ${textColorClass}`}>
         <Toast.Header>
           <strong className="me-auto">Notification</strong>
@@ -45,3 +45,5 @@ const ToastNotification: React.FC<ToastNotificationProps> = ({ show, message, va
 };
 
 export default ToastNotification;
+
+// position-fixed bottom-0 end-0 
