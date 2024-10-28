@@ -4,6 +4,7 @@ import { Recipe } from '../model/recipes';
 import RecipeTable from '../components/RecipeTable';
 import RecipeUpdateModal from '../components/RecipeUpdateModal';
 import LocalRecipeSearch from '../components/LocalRecipeSearch';
+import ToastNotification from '../components/ToastNotifcation';
 
 /**
  * MyRecipesPage component to display and manage the user's saved recipes.
@@ -16,6 +17,11 @@ const MyRecipesPage: React.FC = () => {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [toastMessage, setToastMessage] = useState('');
+  const [showToast, setShowToast] = useState(false);
+  const [toastVariant, setToastVariant] = useState<'success' | 'warning' | 'danger' | 'info'>('info');
+
+
 
   /** 
    * Fetch recipes from the API when the component mounts.
@@ -42,6 +48,9 @@ const MyRecipesPage: React.FC = () => {
     try {
       const newRecipe = await updateRecipeToAPI(updatedRecipe);
       setRecipes(recipes.map(recipe => recipe.id === newRecipe.id ? newRecipe : recipe));
+      setToastMessage('Recipe updated successfully');
+      setToastVariant('warning');
+      setShowToast(true);
     } catch (error) {
       console.error('Failed to update recipe:', error);
     }
@@ -56,6 +65,9 @@ const MyRecipesPage: React.FC = () => {
     try {
       await deleteRecipeFromAPI(id);
       setRecipes(recipes.filter(recipe => recipe.id !== id));
+      setToastMessage('Recipe deleted successfully');
+      setToastVariant('danger');
+      setShowToast(true);
     } catch (error) {
       console.error('Failed to delete recipe:', error);
     }
@@ -123,6 +135,12 @@ const MyRecipesPage: React.FC = () => {
         recipe={selectedRecipe}
         onClose={handleCloseModal}
         onUpdate={updateRecipe}
+      />
+      <ToastNotification
+        show={showToast}
+        message={toastMessage}
+        variant={toastVariant}
+        onClose={() => setShowToast(false)}
       />
     </div>
   );

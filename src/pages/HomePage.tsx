@@ -5,6 +5,7 @@ import { Recipe } from '../model/recipes';
 import RecipeList from '../components/RecipeList';
 import RecipeForm from '../components/RecipeForm';
 import RecipeUpdateModal from '../components/RecipeUpdateModal';
+import ToastNotification from '../components/ToastNotifcation';
 
 
 /**
@@ -18,6 +19,9 @@ const HomePage: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [showToast, setShowToast] = useState(false);
+  const [toastVariant, setToastVariant] = useState<'success' | 'warning' | 'danger' | 'info'>('info');
   // const location = useLocation();
 
   /**
@@ -47,6 +51,9 @@ const HomePage: React.FC = () => {
     try {
       const newRecipe = await addRecipeToAPI(recipe);
       setRecipes([...recipes, newRecipe]);
+      setToastMessage('Recipe added successfully');
+      setToastVariant('success');
+      setShowToast(true);
     } catch (error) {
       console.error('Failed to add recipe:', error);
     }
@@ -62,6 +69,9 @@ const HomePage: React.FC = () => {
     try {
       const newRecipe = await updateRecipeToAPI(updatedRecipe);
       setRecipes(recipes.map(recipe => recipe.id === newRecipe.id ? newRecipe : recipe));
+      setToastMessage('Recipe updated successfully');
+      setToastVariant('warning');
+      setShowToast(true);
     } catch (error) {
       console.error('Failed to update recipe:', error);
     }
@@ -76,6 +86,9 @@ const HomePage: React.FC = () => {
     try {
       await deleteRecipeFromAPI(id);
       setRecipes(recipes.filter(recipe => recipe.id !== id));
+      setToastMessage('Recipe deleted successfully');
+      setToastVariant('danger');
+      setShowToast(true);
     } catch (error) {
       console.error('Failed to delete recipe:', error);
     }
@@ -145,6 +158,12 @@ const HomePage: React.FC = () => {
         recipe={selectedRecipe}
         onClose={handleCloseModal}
         onUpdate={updateRecipe}
+      />
+      <ToastNotification
+        show={showToast}
+        message={toastMessage}
+        variant={toastVariant}
+        onClose={() => setShowToast(false)}
       />
     </div>
   );
