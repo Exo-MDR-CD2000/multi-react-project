@@ -27,6 +27,31 @@
   visibility: visible;
 }
 
+#exotic-bird {
+  border-radius: 50% !important; /* Makes the image rounded */
+  border: 2px solid black; /* Applies a black border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds a soft black shadow */
+}
+
+/* Custom styles for medium and small breakpoints */
+@media (max-width: 767.98px) { /* Small devices (landscape phones, less than 768px) */
+  #exotic-bird {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) { /* Medium devices (tablets, 768px and up) */
+  #exotic-bird {
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 .footer-text {
   font-size: 0.875rem;
   font-style: italic;
