@@ -11,7 +11,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ show, imageUrl, recipeTitle, on
   return (
     <div className={`modal fade ${show ? 'show d-block' : ''}`} tabIndex={-1} role="dialog">
       <div className="modal-dialog modal-dialog-centered" role="document">
-        <div className="modal-content">
+        <div className="modal-content bg-light">
           <div className="modal-header justify-content-between">
             <h5 className="modal-title">{recipeTitle}</h5>
             <button type="button" className="btn btn-danger btn-sm" aria-label="Close" onClick={onClose}>
