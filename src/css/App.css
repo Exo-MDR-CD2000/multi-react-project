@@ -33,8 +33,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds a soft black shadow */
 }
 
-/* Custom styles for medium and small breakpoints */
-@media (max-width: 767.98px) { /* Small devices (landscape phones, less than 768px) */
+@media (max-width: 575.98px) { /* Extra small devices (portrait phones, less than 576px) */
+  #exotic-bird {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) { /* Small devices (landscape phones, 576px and up) */
   #exotic-bird {
     width: 250px;
     height: 250px;
@@ -47,6 +55,15 @@
   #exotic-bird {
     width: 300px;
     height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) { /* Large devices (desktops, 992px and up) */
+  #exotic-bird {
+    width: 375px;
+    height: 375px;
     display: block;
     margin-left: auto;
     margin-right: auto;
