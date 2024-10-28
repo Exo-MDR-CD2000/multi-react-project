@@ -27,7 +27,8 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
   const [prepTime, setPrepTime] = useState('');
   const [caloriesPerServing, setCaloriesPerServing] = useState(0);
 
-  const BASE_IMAGE_URL = 'https://placehold.co/415x311';
+  // const BASE_IMAGE_URL = 'https://placehold.co/415x311';
+  const BASE_IMAGE_URL = 'https://placehold.co/600x400';
 
   /**
    * Handles adding an ingredient to the ingredients list.
