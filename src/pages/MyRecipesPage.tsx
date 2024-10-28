@@ -7,7 +7,7 @@ import LocalRecipeSearch from '../components/LocalRecipeSearch';
 
 /**
  * MyRecipesPage component to display and manage the user's saved recipes.
- * Reuses the RecipeTable, RecipeUpdateModal, and LocalRecipeSearch components.
+ * Reuses the RecipeTable, RecipeUpdateModal, and LocalRecipeSearch components, and useEffect hook.
  *
  * @returns {JSX.Element} The rendered MyRecipesPage component.
  */
@@ -17,6 +17,10 @@ const MyRecipesPage: React.FC = () => {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
+  /** 
+   * Fetch recipes from the API when the component mounts.
+   * We use the useEffect hook to fetch the recipes when the component mounts.
+  */
   useEffect(() => {
     const getRecipes = async () => {
       try {
