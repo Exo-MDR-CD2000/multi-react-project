@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import FooterCurrentYear from '../utilities/footerCurrentYear';
-// create bootstrap footer here and do not use react-bootstrap dependency. regular bootstrap is fine.
 
 /**
  * The Footer component that provides footer content.
@@ -12,12 +12,9 @@ const Footer: React.FC = () => {
   return (
     <footer className="container text-center text-lg-start border-2 border-top my-4">
       <div className="row">
-        <div className="col p-4 d-flex justify-content-between align-items-center">
-          <div className="footer-text">
-            © {FooterCurrentYear()} Jose Guillen
-          </div>
-          <ul className="list-unstyled d-flex mb-0">
-            <li className="ms-3">
+        <div className="col p-4">
+          <ul className="list-unstyled d-flex justify-content-center mb-3">
+            <li className="">
               <a className="text-body-secondary" href="https://github.com/Exo-MDR-CD2000" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                 <i className="bi bi-github" aria-hidden="true"></i>
               </a>
@@ -28,7 +25,24 @@ const Footer: React.FC = () => {
               </a>
             </li>
           </ul>
+          <ul className="list-unstyled d-flex justify-content-center mb-0">
+            <li className="">
+              <Link className="text-body-secondary" to="/">Home</Link>
+            </li>
+            <li className="ms-3">
+              <Link className="text-body-secondary" to="/my-recipes">My Recipes</Link>
+            </li>
+            <li className="ms-3">
+              <Link className="text-body-secondary" to="/contact">Contact</Link>
+            </li>
+            <li className="ms-3">
+              <Link className="text-body-secondary" to="/about">About</Link>
+            </li>
+          </ul>
         </div>
+        <div className="footer-text text-center">
+            © {FooterCurrentYear()} Jose Guillen
+          </div>
       </div>
     </footer>
   );
