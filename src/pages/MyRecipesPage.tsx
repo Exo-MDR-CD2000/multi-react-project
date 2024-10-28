@@ -60,7 +60,24 @@ const MyRecipesPage: React.FC = () => {
 
   return (
     <div>
-      <h2>My Recipes</h2>
+      <div className="row justify-content-center text-center mb-2">
+          <div className="col-11">
+            <div className="card border-0">
+              <div className="card-body">
+                <h2 className="card-title">My Saved Recipes</h2>
+                <hr />
+                <p className="card-text">
+                  Manage your recipes with ease via the table below. 
+                </p>
+                <p className='card-text'>Update and delete your saved recipes.</p>
+                <p className='card-text'>
+                  Click on the recipe image for a larger view.
+                </p>
+                <hr />
+              </div>
+            </div>
+          </div>
+        </div>
       <LocalRecipeSearch onSearch={handleSearch} />
       <br />
       <RecipeTable
