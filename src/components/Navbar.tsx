@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavBrandIcon from '../assets/recipe-cookbook.svg';
 // create navbar without using react bootstrap dependency. regular bootstrap is fine.
 
 /**
@@ -11,7 +12,10 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">Recipe Manager</Link>
+      <Link className="navbar-brand" to="/">
+        <img src={NavBrandIcon} alt="Logo" width="30" height="30" className="d-inline-block align-top me-2" />
+        Recipe Manager
+      </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
