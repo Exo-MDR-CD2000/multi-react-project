@@ -16,7 +16,7 @@ import './css/index.css'
 import './css/App.css'
 
 // Remove this after testing all breakpoints
-import './css/bootstrap-breakpoint.css'
+// import './css/bootstrap-breakpoint.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
