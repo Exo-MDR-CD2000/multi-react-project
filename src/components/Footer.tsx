@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
         <div className="footer-text text-center">
-            © {FooterCurrentYear()} Jose Guillen
+            ©{FooterCurrentYear()} Jose Guillen
           </div>
       </div>
     </footer>
