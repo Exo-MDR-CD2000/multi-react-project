@@ -13,6 +13,30 @@
   }
 }
 
+// -------- Image Modal Component --------
+
+/* Backdrop overlay */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(8px); /* Adjust blur intensity */
+  z-index: 1050; /* Ensure it's behind the modal */
+  display: none; /* Hidden by default */
+}
+
+.backdrop.show {
+  display: block; /* Show backdrop when modal is open */
+}
+
+/* Ensure modal itself appears above the backdrop */
+.modal {
+  z-index: 1060;
+}
+
 // -------- Toast Notification Component --------
 
 .toast-container {
