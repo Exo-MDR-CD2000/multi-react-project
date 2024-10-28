@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import { fetchRecipes, addRecipe as addRecipeToAPI, updateRecipe as updateRecipeToAPI, deleteRecipe as deleteRecipeFromAPI } from '../services/recipeService';
 import { Recipe } from '../model/recipes';
 import RecipeList from '../components/RecipeList';
@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
-  const location = useLocation();
+  // const location = useLocation();
 
   /**
    * Fetch recipes from the API when the component mounts.
@@ -101,8 +101,29 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
+      {/* Introduction Card */}
+      <div className="row justify-content-center text-center mb-2">
+          <div className="col-11">
+            <div className="card border-0">
+              <div className="card-body">
+                <h2 className="card-title">Welcome to Recipe Manager</h2>
+                <hr />
+                <p className="card-text">
+                  Manage your recipes with ease. Create, save, delete, and update your favorite recipes all in one place.
+                </p>
+                <p className="card-text">
+                  Use the form below to add new recipes and see the list of your saved recipes.
+                </p>
+                <p className='card-text'>
+                  Click on a recipe to view more details, and update or delete it as needed.
+                </p>
+                <hr />
+              </div>
+            </div>
+          </div>
+        </div>
       {/* Display a message if the user is on the Home Page (testing purposes) */}
-      {location.pathname === '/' && <div className="location-route-test">You are on the Home Page</div>}
+      {/* {location.pathname === '/' && <div className="location-route-test">You are on the Home Page</div>} */}
       <div className="row">
         <div className="col-12">
           {/* Render the RecipeForm component to add a new recipe */}
