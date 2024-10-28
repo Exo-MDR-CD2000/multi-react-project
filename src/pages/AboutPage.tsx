@@ -1,12 +1,12 @@
 import React from 'react';
-import profilePicture from '../assets/new-exotic-bird.jpg'; // Update the path to your profile picture
+import profilePictureCompressed from '../assets/new-exotic-bird-compressed.webp'; // Update the path to your profile picture
 
 const AboutPage: React.FC = () => {
   return (
     <section className="container py-3 py-md-5">
       <div className="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
         <div className="col-12 col-lg-6 col-xl-5">
-          <img className="img-fluid rounded" id='exotic-bird' loading="lazy" src={profilePicture} alt="Profile" />
+          <img className="img-fluid rounded" id='exotic-bird' loading="lazy" src={profilePictureCompressed} alt="Profile" />
         </div>
         <div className="col-12 col-lg-6 col-xl-7">
           <div className="row justify-content-xl-center">
