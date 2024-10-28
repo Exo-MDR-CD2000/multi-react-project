@@ -1,4 +1,5 @@
 import React from 'react';
+import Backdrop from './BluryBackdrop';
 
 interface ImageModalProps {
   show: boolean;
@@ -11,7 +12,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ show, imageUrl, recipeTitle, on
   return (
     <>
       {/* Backdrop overlay */}
-      <div className={`backdrop ${show ? 'show' : ''}`} onClick={onClose}></div>
+      <Backdrop show={show} onClick={onClose} />
 
       {/* Modal content */}
       <div className={`modal fade ${show ? 'show d-block' : ''}`} tabIndex={-1} role="dialog">

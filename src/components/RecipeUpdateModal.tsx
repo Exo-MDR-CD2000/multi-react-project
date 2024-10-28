@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 // recipe interface is imported because it is used in the RecipeUpdateModalProps interface
 import { Recipe } from '../model/recipes.ts';
 
+import Backdrop from './BluryBackdrop.tsx';
+
 
 // important to note that this component lives separately from all the other components
 // It is not nested in any other component and can be lifted up to the App component
@@ -78,7 +80,11 @@ const RecipeUpdateModal: React.FC<RecipeUpdateModalProps> = ({ show, recipe, onC
   if (!show || !recipe) return null;
 
   return (
-    <div className="modal show d-block bg-dark" tabIndex={-1}>
+    <>
+      {/* Backdrop overlay */}
+      <Backdrop show={show} onClick={onClose} />
+
+    <div className="modal show d-block" tabIndex={-1}>
       <div className="modal-dialog">
         <div className="modal-content bg-light">
           <div className="modal-header justify-content-between">
@@ -164,6 +170,7 @@ const RecipeUpdateModal: React.FC<RecipeUpdateModalProps> = ({ show, recipe, onC
         </div>
       </div>
     </div>
+    </>
   );
 };
 
