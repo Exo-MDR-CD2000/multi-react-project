@@ -1,5 +1,7 @@
 # React Site WIP Final Project: Week 3
+
 React project based around cooking recipes.
+
 ## Description
 
 This assignment is a month long final project based on React and Typescript. The foundation for this project has been made and is based around user created cooking recipes that is saved to a local backend with MockAPI. MockAPI has already been implemented.
