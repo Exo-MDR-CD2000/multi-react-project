@@ -50,10 +50,10 @@ To get a local copy up and running follow these simple steps. This also assumes 
     ```
 5. **API data is hosted on MockAPI and requires no further action**
 
-## Link(s)
+## Link/Source(s)
 
-- Promineo Videos and Independent Research
 - [Bootstrap About Me Template](https://bootstrapbrain.com/demo/components/abouts/about-1/)
 - [Site logo icon generated from ucraft](https://www.ucraft.com/ai-logo-generator/app)
-- Instructor help from George Heeres about api config file use
 - [Github Repo](https://github.com/Exo-MDR-CD2000/multi-react-project)
+- Promineo Videos and Independent Research
+- Instructor help from George Heeres about api config file use
