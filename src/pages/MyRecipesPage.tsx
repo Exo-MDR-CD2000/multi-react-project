@@ -109,7 +109,8 @@ const MyRecipesPage: React.FC = () => {
       <DocumentTitle title='My Recipes | Recipes Manager' />
       <div className="row justify-content-center text-center mb-2">
           <div className="col-11">
-            <div className="card border-0">
+            {/* add card class to div below for further color testing later */}
+            <div className="border-0">
               <div className="card-body">
                 <h2 className="card-title">My Saved Recipes</h2>
                 <hr />
@@ -144,7 +145,7 @@ const MyRecipesPage: React.FC = () => {
         variant={toastVariant}
         onClose={() => setShowToast(false)}
       />
-    </div>
+      </div>  
   );
 };
 
