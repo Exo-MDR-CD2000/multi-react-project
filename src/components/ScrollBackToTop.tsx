@@ -29,7 +29,7 @@ const ScrollBackToTop: React.FC = () => {
         <div>
             <button
                 onClick={scrollToTop}
-                className={`btn btn-primary m-3 ${isVisible ? 'visible' : ''}`}
+                className={`btn btn-primary m-3 ${isVisible ? 'visible' : 'hidden'}`}
                 id="scrollToTop"
             >
                 <i className="bi bi-arrow-up"></i>
