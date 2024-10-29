@@ -6,7 +6,7 @@ Final site project based around cooking recipes using React and Typescript
 
 This assignment is a month long final project based on React and Typescript. The foundation for this project has been made and is based around user created cooking recipes that is saved to a local backend with MockAPI. MockAPI has already been implemented.
 
-For the fourth week, we had to implement an online API that can allow for all CRUD operations. I have already done this a few weeks ago with the use of MockAPI. There is a separate recipe service file with all of the routing logic to the mockup backend. useEffect hooks are implemented in their respective react pages where it is necessary to fetch data from the API. There is also other async functions for the other CRUD requirements in the Home Page and in the Recipe Page.
+For the fourth week, we had to implement an online API that can allow for all CRUD operations. I had already done this a few weeks ago with the use of MockAPI. There is a separate recipe service file with all of the routing logic to the mockup backend. useEffect hooks are implemented in their respective react pages where it is necessary to fetch data from the API. There is also other async functions for the other CRUD requirements in the Home Page and in the Recipe Page.
 
 Styling was revamped again and other small changes were made. React router was refactored to use a Layout component which includes the Navbar, Footer, and a container for rendering child routes. The Outlet import is used to render child components (the other pages) which are in the App component. It's not exactly one-to-one with the video demonstration, but this implementation is simply one method of doing it.
 
