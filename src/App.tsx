@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import MyRecipesPage from './pages/MyRecipesPage';
 import ContactPage from './pages/ContactPage';
@@ -7,6 +7,9 @@ import AboutPage from './pages/AboutPage';
 import ScrollBackToTop from './components/ScrollBackToTop';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+
+
+// TODO: Look into creating a layout component to wrap the routes in a container for styling purposes 
 
 /**
  * The main App component that sets up routing for the application.
@@ -16,8 +19,6 @@ import Footer from './components/Footer';
  */
 const App: React.FC = () => {
   return (
-    // Wrap the entire application in the Router component to enable routing
-    <Router>
       <div className="d-flex flex-column">
         {/* Include the Navbar component to provide navigation links */}
         <Navbar />
@@ -41,7 +42,6 @@ const App: React.FC = () => {
         {/* Include the Footer component to provide footer content */}
         <Footer />
       </div>
-    </Router>
   );
 };
 
