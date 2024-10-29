@@ -1,4 +1,4 @@
-# React Site WIP Final Project: Week 3
+# React Site Final Project: Week 4
 
 Final site project based around cooking recipes using React and Typescript
 
