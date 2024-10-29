@@ -21,6 +21,7 @@ const App: React.FC = () => {
       <div className="d-flex flex-column">
         {/* Include the Navbar component to provide navigation links */}
         <Navbar />
+        {/* TODO: Look into removing this container and manually apply it to each page for greater control on styling */}
         <div className="container mt-4">
           {/* <h1 className="text-center">My Recipe App</h1> */}
           {/* Define the Routes component to specify the different routes in the application */}
