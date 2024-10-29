@@ -5,6 +5,7 @@ import RecipeTable from '../components/RecipeTable';
 import RecipeUpdateModal from '../components/RecipeUpdateModal';
 import LocalRecipeSearch from '../components/LocalRecipeSearch';
 import ToastNotification from '../components/ToastNotifcation';
+import DocumentTitle from '../components/DocumentTitle';
 
 /**
  * MyRecipesPage component to display and manage the user's saved recipes.
@@ -105,6 +106,7 @@ const MyRecipesPage: React.FC = () => {
 
   return (
     <div className='container mb-4'>
+      <DocumentTitle title='My Recipes | Recipes Manager' />
       <div className="row justify-content-center text-center mb-2">
           <div className="col-11">
             <div className="card border-0">

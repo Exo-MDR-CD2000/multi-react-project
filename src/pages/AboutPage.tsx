@@ -1,9 +1,11 @@
 import React from 'react';
 import profilePictureCompressed from '../assets/new-exotic-bird-compressed.webp'; // Update the path to your profile picture
+import DocumentTitle from '../components/DocumentTitle';
 
 const AboutPage: React.FC = () => {
   return (
     <section className="container py-3 py-md-5">
+      <DocumentTitle title="About Me | Jose Guillen" />
       <div className="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
         <div className="col-12 col-lg-6 col-xl-5">
           <img className="img-fluid rounded" id='exotic-bird' loading="lazy" src={profilePictureCompressed} alt="Profile" />

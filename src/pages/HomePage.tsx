@@ -6,12 +6,13 @@ import RecipeList from '../components/RecipeList';
 import RecipeForm from '../components/RecipeForm';
 import RecipeUpdateModal from '../components/RecipeUpdateModal';
 import ToastNotification from '../components/ToastNotifcation';
+import DocumentTitle from '../components/DocumentTitle';
 
 
 /**
  * The HomePage component that displays the main content of the application.
  * All of the relevant components are rendered here, including RecipeList, RecipeForm, and RecipeUpdateModal.
- * THey were moved from App.tsx to this component (App.tsx now only contains routing logic).
+ * They were moved from App.tsx to this component (App.tsx now only contains routing logic).
  * 
  * @returns {JSX.Element} The rendered HomePage component.
  */
@@ -114,6 +115,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className='mb-4'>
+      <DocumentTitle title="Home | Recipe Manager" />
       {/* Introduction Card */}
       <div className="row justify-content-center text-center mb-2">
           <div className="col-11">
