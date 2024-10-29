@@ -23,6 +23,7 @@ const HomePage: React.FC = () => {
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
   const [toastVariant, setToastVariant] = useState<'success' | 'warning' | 'danger' | 'info'>('info');
+  const [loading, setLoading] = useState(true); // adds a loading state
   // const location = useLocation();
 
   /**
@@ -35,6 +36,7 @@ const HomePage: React.FC = () => {
     console.log('UseEffect called in HomePage');
     const getRecipes = async () => {
       try {
+        setLoading(true); // set loading state to true
         const fetchedRecipes = await fetchRecipes();
         setRecipes(fetchedRecipes);
       } catch (error) {
@@ -42,6 +44,8 @@ const HomePage: React.FC = () => {
         setToastMessage('Failed to fetch recipes');
         setToastVariant('danger');
         setShowToast(true);
+      } finally {
+        setLoading(false); // set loading state to false
       }
     };
     getRecipes();
@@ -165,6 +169,7 @@ const HomePage: React.FC = () => {
             onDeleteClick={deleteRecipe}
           />
         </div>
+        {loading ? ( <h3 className="text-center mt-3">Loading...</h3> ) : null}
       </div>
       {/* Render the RecipeUpdateModal component to update a recipe */}
       <RecipeUpdateModal

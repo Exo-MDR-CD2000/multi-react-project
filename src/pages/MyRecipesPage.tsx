@@ -21,7 +21,7 @@ const MyRecipesPage: React.FC = () => {
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
   const [toastVariant, setToastVariant] = useState<'success' | 'warning' | 'danger' | 'info'>('info');
-
+  const [loading, setLoading] = useState(true);
 
 
   /** 
@@ -31,6 +31,7 @@ const MyRecipesPage: React.FC = () => {
   useEffect(() => {
     const getRecipes = async () => {
       try {
+        setLoading(true);
         const fetchedRecipes = await fetchRecipes();
         setRecipes(fetchedRecipes);
       } catch (error) {
@@ -38,6 +39,8 @@ const MyRecipesPage: React.FC = () => {
         setToastMessage('Failed to fetch recipes');
         setToastVariant('danger');
         setShowToast(true);
+      } finally {
+        setLoading(false);
       }
     };
     getRecipes();
@@ -63,11 +66,11 @@ const MyRecipesPage: React.FC = () => {
     }
   };
 
-   /**
-   * Handles deleting a recipe.
-   *
-   * @param {string} id - The ID of the recipe to delete.
-   */
+  /**
+  * Handles deleting a recipe.
+  *
+  * @param {string} id - The ID of the recipe to delete.
+  */
   const deleteRecipe = async (id: string) => {
     try {
       await deleteRecipeFromAPI(id);
@@ -83,11 +86,11 @@ const MyRecipesPage: React.FC = () => {
     }
   };
 
-   /**
-   * Handles the click event to update a recipe.
-   *
-   * @param {Recipe} recipe - The recipe object to update.
-   */
+  /**
+  * Handles the click event to update a recipe.
+  *
+  * @param {Recipe} recipe - The recipe object to update.
+  */
   const handleUpdateClick = (recipe: Recipe) => {
     setSelectedRecipe(recipe);
     setShowUpdateModal(true);
@@ -110,31 +113,31 @@ const MyRecipesPage: React.FC = () => {
     setSearchTerm(term);
   };
 
-  const filteredRecipes = recipes.filter(recipe => 
+  const filteredRecipes = recipes.filter(recipe =>
     recipe.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
     <div className='container mb-4'>
       <DocumentTitle title='My Recipes | Recipes Manager' />
       <div className="row justify-content-center text-center mb-2">
-          <div className="col-11">
-            {/* add card class to div below for further color testing later */}
-            <div className="border-0">
-              <div className="card-body">
-                <h2 className="card-title">My Saved Recipes</h2>
-                <hr />
-                <p className="card-text">
-                  Manage your recipes with ease via the table below. 
-                </p>
-                <p className='card-text'>Update and delete your saved recipes.</p>
-                <p className='card-text'>
-                  Click on the recipe image for a larger view.
-                </p>
-                <hr />
-              </div>
+        <div className="col-11">
+          {/* add card class to div below for further color testing later */}
+          <div className="border-0">
+            <div className="card-body">
+              <h2 className="card-title">My Saved Recipes</h2>
+              <hr />
+              <p className="card-text">
+                Manage your recipes with ease via the table below.
+              </p>
+              <p className='card-text'>Update and delete your saved recipes.</p>
+              <p className='card-text'>
+                Click on the recipe image for a larger view.
+              </p>
+              <hr />
             </div>
           </div>
         </div>
+      </div>
       <LocalRecipeSearch onSearch={handleSearch} />
       <br />
       <RecipeTable
@@ -154,7 +157,11 @@ const MyRecipesPage: React.FC = () => {
         variant={toastVariant}
         onClose={() => setShowToast(false)}
       />
-      </div>  
+      <div>
+        {/* Loading message just beneath the recipe table */}
+        {loading ? (<h3 className="text-center mt-4 mb-2">Loading...</h3>) : null}
+      </div>
+    </div>
   );
 };
 
