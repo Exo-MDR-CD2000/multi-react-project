@@ -1,6 +1,6 @@
 # React Site WIP Final Project: Week 3
 
-React project based around cooking recipes.
+Final site project based around cooking recipes using React and Typescript
 
 ## Description
 
