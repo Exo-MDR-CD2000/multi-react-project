@@ -39,6 +39,9 @@ const HomePage: React.FC = () => {
         setRecipes(fetchedRecipes);
       } catch (error) {
         console.error('Failed to fetch recipes:', error);
+        setToastMessage('Failed to fetch recipes');
+        setToastVariant('danger');
+        setShowToast(true);
       }
     };
     getRecipes();
@@ -57,6 +60,9 @@ const HomePage: React.FC = () => {
       setShowToast(true);
     } catch (error) {
       console.error('Failed to add recipe:', error);
+      setToastMessage('Failed to add recipe');
+      setToastVariant('danger');
+      setShowToast(true);
     }
   };
 
@@ -75,6 +81,9 @@ const HomePage: React.FC = () => {
       setShowToast(true);
     } catch (error) {
       console.error('Failed to update recipe:', error);
+      setToastMessage('Failed to update recipe');
+      setToastVariant('danger');
+      setShowToast(true);
     }
   };
 
@@ -92,6 +101,9 @@ const HomePage: React.FC = () => {
       setShowToast(true);
     } catch (error) {
       console.error('Failed to delete recipe:', error);
+      setToastMessage('Failed to delete recipe');
+      setToastVariant('danger');
+      setShowToast(true);
     }
   };
 

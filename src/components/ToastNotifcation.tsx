@@ -32,9 +32,13 @@ const ToastNotification: React.FC<ToastNotificationProps> = ({ show, message, va
 
   const textColorClass = variant === 'warning' ? 'text-dark' : 'text-white';
 
+  // Determine delay and autohide based on variant
+  const delay = variant === 'danger' ? 0 : 3000;
+  const autohide = variant !== 'danger';
+
   return (
     <ToastContainer className="p-3">
-      <Toast show={showToast} onClose={onClose} delay={3000} autohide className={`bg-${variant} ${textColorClass}`}>
+      <Toast show={showToast} onClose={onClose} delay={delay} autohide={autohide} className={`bg-${variant} ${textColorClass}`}>
         <Toast.Header>
           <strong className="me-auto">Notification</strong>
         </Toast.Header>
