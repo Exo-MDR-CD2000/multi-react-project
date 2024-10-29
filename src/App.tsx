@@ -1,12 +1,14 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import MyRecipesPage from './pages/MyRecipesPage';
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
-import ScrollBackToTop from './components/ScrollBackToTop';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+
+// import ScrollBackToTop from './components/ScrollBackToTop';
+// import Navbar from './components/Navbar';
+// import Footer from './components/Footer';
 
 
 // TODO: Look into creating a layout component to wrap the routes in a container for styling purposes 
@@ -17,31 +19,17 @@ import Footer from './components/Footer';
  * 
  * @returns {JSX.Element} The rendered App component.
  */
+
 const App: React.FC = () => {
   return (
-      <div className="d-flex flex-column">
-        {/* Include the Navbar component to provide navigation links */}
-        <Navbar />
-        {/* TODO: Look into removing this container and manually apply it to each page for greater control on styling */}
-        <div className="container mt-4">
-          {/* <h1 className="text-center">My Recipe App</h1> */}
-          {/* Define the Routes component to specify the different routes in the application */}
-          <Routes>
-            {/* Define a route for the HomePage component */}
-            <Route path="/" element={<HomePage />} />
-            {/* Define a route for the MyRecipesPage component */}
-            <Route path="/my-recipes" element={<MyRecipesPage />} />
-            {/* Define a route for the ContactPage component */}
-            <Route path="/contact" element={<ContactPage />} />
-            {/* Define a route for the AboutPage component */}
-            <Route path="/about" element={<AboutPage />} />
-          </Routes>
-          {/* Include the ScrollBackToTop component to handle scrolling behavior */}
-          <ScrollBackToTop />
-        </div>
-        {/* Include the Footer component to provide footer content */}
-        <Footer />
-      </div>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route path="my-recipes" element={<MyRecipesPage />} />
+      <Route path="contact" element={<ContactPage />} />
+      <Route path="about" element={<AboutPage />} />
+    </Route>
+  </Routes>
   );
 };
 
