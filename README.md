@@ -32,7 +32,7 @@ As well as the requirements from last week:
 
 ## Usage
 
-To get a local copy up and running follow these simple steps. This also assumes you have node installed to download npm packages.
+To get a local copy up and running follow these simple steps. This also assumes you have node installed to download npm packages. You can also click on the deployed link as well!
 
 1. **Clone the repo (SSH Method Below)**
     ```sh
@@ -51,6 +51,10 @@ To get a local copy up and running follow these simple steps. This also assumes 
     npm run dev
     ```
 5. **API data is hosted on MockAPI and requires no further action**
+
+## Deployed Link
+
+- [Netlify Deploy Link](WIP)
 
 ## Link/Source(s)
 
