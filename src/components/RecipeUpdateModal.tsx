@@ -84,76 +84,76 @@ const RecipeUpdateModal: React.FC<RecipeUpdateModalProps> = ({ show, recipe, onC
       {/* Backdrop overlay */}
       <Backdrop show={show} onClick={onClose} />
 
-    <div className="modal show d-block" tabIndex={-1}>
-      <div className="modal-dialog">
-        <div className="modal-content bg-light">
-          <div className="modal-header justify-content-between">
-            <h5 className="modal-title">Update Recipe</h5>
-            <button type="button" className="btn btn-danger btn-sm" onClick={onClose}>
-              <i className="bi bi-x"></i>
-            </button>
-          </div>
-          <div className="modal-body">
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <label htmlFor="recipeTitle" className="form-label">Recipe Title</label>
-                <input
-                  type="text"
-                  placeholder="Enter New Recipe Title"
-                  id="recipeTitle"
-                  className="form-control"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="imageUrl" className="form-label">Image URL</label>
-                <input
-                  type="text"
-                  placeholder="Enter New Image URL"
-                  id="imageUrl"
-                  className="form-control"
-                  value={imageUrl}
-                  onChange={(e) => setImageUrl(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="servingSize" className="form-label">Serving Size</label>
-                <input
-                  type="number"
-                  id="servingSize"
-                  className="form-control"
-                  value={servingSize}
-                  onChange={(e) => setServingSize(Number(e.target.value))}
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="prepTime" className="form-label">Preparation Time</label>
-                <input
-                  type="text"
-                  placeholder="Enter New Preparation Time"
-                  id="prepTime"
-                  className="form-control"
-                  value={prepTime}
-                  onChange={(e) => setPrepTime(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="caloriesPerServing" className="form-label">Calories Per Serving</label>
-                <input
-                  type="number"
-                  id="caloriesPerServing"
-                  className="form-control"
-                  value={caloriesPerServing}
-                  onChange={(e) => setCaloriesPerServing(Number(e.target.value))}
-                  required
-                />
-              </div>
-              <div className="mb-3">
+      <div className="modal show d-block" tabIndex={-1}>
+        <div className="modal-dialog">
+          <div className="modal-content bg-light">
+            <div className="modal-header justify-content-between">
+              <h5 className="modal-title">Update Recipe</h5>
+              <button type="button" className="btn btn-danger btn-sm" onClick={onClose}>
+                <i className="bi bi-x"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="recipeTitle" className="form-label">Recipe Title</label>
+                  <input
+                    type="text"
+                    placeholder="Enter New Recipe Title"
+                    id="recipeTitle"
+                    className="form-control"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="imageUrl" className="form-label">Image URL</label>
+                  <input
+                    type="text"
+                    placeholder="Enter New Image URL"
+                    id="imageUrl"
+                    className="form-control"
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="servingSize" className="form-label">Serving Size</label>
+                  <input
+                    type="number"
+                    id="servingSize"
+                    className="form-control"
+                    value={servingSize}
+                    onChange={(e) => setServingSize(Number(e.target.value))}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="prepTime" className="form-label">Preparation Time</label>
+                  <input
+                    type="text"
+                    placeholder="Enter New Preparation Time"
+                    id="prepTime"
+                    className="form-control"
+                    value={prepTime}
+                    onChange={(e) => setPrepTime(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="caloriesPerServing" className="form-label">Calories Per Serving</label>
+                  <input
+                    type="number"
+                    id="caloriesPerServing"
+                    className="form-control"
+                    value={caloriesPerServing}
+                    onChange={(e) => setCaloriesPerServing(Number(e.target.value))}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
                   <label htmlFor="ingredients" className="form-label">Ingredients</label>
                   <textarea
                     id="ingredients"
@@ -164,23 +164,23 @@ const RecipeUpdateModal: React.FC<RecipeUpdateModalProps> = ({ show, recipe, onC
                     required
                   />
                 </div>
-              <div className="mb-3">
-                <label htmlFor="instructions" className="form-label">Instructions</label>
-                <textarea
-                  id="instructions"
-                  placeholder="Enter New Instructions"
-                  className="form-control"
-                  value={instructions}
-                  onChange={(e) => setInstructions(e.target.value)}
-                  required
-                />
-              </div>
-              <button type="submit" className="btn btn-primary">Update Recipe</button>
-            </form>
+                <div className="mb-3">
+                  <label htmlFor="instructions" className="form-label">Instructions</label>
+                  <textarea
+                    id="instructions"
+                    placeholder="Enter New Instructions"
+                    className="form-control"
+                    value={instructions}
+                    onChange={(e) => setInstructions(e.target.value)}
+                    required
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary">Update Recipe</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
