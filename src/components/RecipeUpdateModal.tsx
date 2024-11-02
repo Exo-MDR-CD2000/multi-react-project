@@ -154,6 +154,17 @@ const RecipeUpdateModal: React.FC<RecipeUpdateModalProps> = ({ show, recipe, onC
                 />
               </div>
               <div className="mb-3">
+                  <label htmlFor="ingredients" className="form-label">Ingredients</label>
+                  <textarea
+                    id="ingredients"
+                    placeholder="Enter Ingredients (one per line)"
+                    className="form-control"
+                    value={ingredients.join('\n')}
+                    onChange={(e) => setIngredients(e.target.value.split('\n'))}
+                    required
+                  />
+                </div>
+              <div className="mb-3">
                 <label htmlFor="instructions" className="form-label">Instructions</label>
                 <textarea
                   id="instructions"
