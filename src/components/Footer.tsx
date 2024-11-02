@@ -10,7 +10,7 @@ import FooterCurrentYear from '../utilities/footerCurrentYear';
  */
 const Footer: React.FC = () => {
   return (
-    <footer className="container text-center text-lg-start border-2 border-top my-4">
+    <footer className="container-fluid text-center text-lg-start border-2 border-top mb-4">
       <div className="row">
         <div className="col p-4">
           <ul className="list-unstyled d-flex justify-content-center mb-3">
