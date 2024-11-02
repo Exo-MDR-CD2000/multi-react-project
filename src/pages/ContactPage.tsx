@@ -3,7 +3,8 @@ import DocumentTitle from '../components/DocumentTitle';
 
 const ContactPage: React.FC = () => {
   return (
-    <section className=" container py-5 vh-100">
+    <section className="contact-wrapper">
+      <div className='container py-5 vh-100'>
       <DocumentTitle title="Contact Me | Recipe Manager" />
       <div className="row justify-content-center">
         <div className="col-12 col-md-8 text-center">
@@ -36,6 +37,7 @@ const ContactPage: React.FC = () => {
           </p>
         </div>
       </div>
+    </div>
     </section>
   );
 };
