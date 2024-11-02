@@ -54,7 +54,7 @@ To get a local copy up and running follow these simple steps. This also assumes 
 
 ## Deployed Link
 
-- [Netlify Deploy Link](WIP)
+- [Netlify Deploy Link](https://recipe-manager-project.netlify.app/)
 
 ## Link/Source(s)
 
