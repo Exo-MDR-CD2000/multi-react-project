@@ -117,49 +117,53 @@ const MyRecipesPage: React.FC = () => {
     recipe.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
-    <div className='container mb-4'>
+    <div className=''>
       <DocumentTitle title='My Recipes | Recipes Manager' />
-      <div className="row justify-content-center text-center mb-2">
-        <div className="col-11">
-          {/* add card class to div below for further color testing later */}
-          <div className="border-0">
-            <div className="card-body">
-              <h2 className="card-title">My Saved Recipes</h2>
-              <hr />
-              <p className="card-text">
-                Manage your recipes with ease via the table below.
-              </p>
-              <p className='card-text'>Update and delete your saved recipes.</p>
-              <p className='card-text'>
-                Click on the recipe image for a larger view.
-              </p>
-              <hr />
+      <div className="container">
+        <div className="row justify-content-center text-center mb-2">
+          <div className="col-11">
+            {/* add card class to div below for further color testing later */}
+            <div className="border-0">
+              <div className="card-body">
+                <h2 className="card-title">My Saved Recipes</h2>
+                <hr />
+                <p className="card-text">
+                  Manage your recipes with ease via the table below.
+                </p>
+                <p className='card-text'>Update and delete your saved recipes.</p>
+                <p className='card-text'>
+                  Click on the recipe image for a larger view.
+                </p>
+                <hr />
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <LocalRecipeSearch onSearch={handleSearch} />
-      <br />
-      <RecipeTable
-        recipes={filteredRecipes}
-        onUpdateClick={handleUpdateClick}
-        onDeleteClick={deleteRecipe}
-      />
-      <RecipeUpdateModal
-        show={showUpdateModal}
-        recipe={selectedRecipe}
-        onClose={handleCloseModal}
-        onUpdate={updateRecipe}
-      />
-      <ToastNotification
-        show={showToast}
-        message={toastMessage}
-        variant={toastVariant}
-        onClose={() => setShowToast(false)}
-      />
-      <div>
-        {/* Loading message just beneath the recipe table */}
-        {loading ? (<h3 className="text-center mt-4 mb-2">Loading...</h3>) : null}
+      <div className="recipe-search-table-wrapper">
+        <LocalRecipeSearch onSearch={handleSearch} />
+        <br />
+        <RecipeTable
+          recipes={filteredRecipes}
+          onUpdateClick={handleUpdateClick}
+          onDeleteClick={deleteRecipe}
+        />
+        <RecipeUpdateModal
+          show={showUpdateModal}
+          recipe={selectedRecipe}
+          onClose={handleCloseModal}
+          onUpdate={updateRecipe}
+        />
+        <ToastNotification
+          show={showToast}
+          message={toastMessage}
+          variant={toastVariant}
+          onClose={() => setShowToast(false)}
+        />
+        <div>
+          {/* Loading message just beneath the recipe table */}
+          {loading ? (<h3 className="text-center mt-4 mb-2">Loading...</h3>) : null}
+        </div>
       </div>
     </div>
   );
