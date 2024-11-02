@@ -27,6 +27,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
   const [prepTime, setPrepTime] = useState('');
   const [caloriesPerServing, setCaloriesPerServing] = useState(0);
 
+  // const BASE_IMAGE_URL = 'https://placehold.co/415x311';
   const BASE_IMAGE_URL = 'https://placehold.co/600x400';
 
   /**
@@ -92,6 +93,17 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
     } else {
       console.error('One or more fields are invalid. Please check the form.');
     }
+  };
+
+  // Maybe not the safest way to reset the form, but it works and state management seems fine in browser
+  const handleReset = () => {
+    setTitle('');
+    setIngredients([]);
+    setInstructions('');
+    setImageUrl('');
+    setServingSize(1);
+    setPrepTime('');
+    setCaloriesPerServing(0);
   };
 
   return (
@@ -200,6 +212,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
           ))}
         </ul>
         <button type="submit" className="btn btn-primary">Submit Recipe</button>
+        <button type="reset" className="btn btn-secondary ms-2" onClick={handleReset}>Reset Form</button>
       </form>
     </div>
   );

@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // Import Components
 import App from './App.tsx' // Import App Component
@@ -13,9 +14,15 @@ import 'bootstrap/dist/js/bootstrap.bundle.min'; // Import Bootstrap JS
 
 // Styles
 import './css/index.css'
+import './css/App.css'
+
+// Remove this after testing all breakpoints
+// import './css/bootstrap-breakpoint.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </StrictMode>,
 )

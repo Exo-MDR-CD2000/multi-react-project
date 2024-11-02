@@ -1,3 +1,32 @@
+// .location-route-test {
+//   color: red;
+// }
+
+// Wrapper styles for the RecipeList, RecipeSearchTable, Contact, and About pages
+
+.recipe-list-wrapper {
+  // background-color: #f0f9f9;
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+  // width: 100vw;
+  // margin-left: calc(-50vw + 50%);
+  // padding: 20px; // Optional: Add padding to the top and bottom
+}
+
+.recipe-search-table-wrapper {
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+  padding: 20px; // Optional: Add padding to the top and bottom
+}
+
+.contact-wrapper {
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+}
+
+.about-page-wrapper {
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+}
+
+// -------- Recipe Card Component --------
+
 .card-wrapper {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -7,22 +36,123 @@
   }
 }
 
+// -------- Blurry Backdrop Component --------
+
+/* Backdrop overlay */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(8px); /* Adjust blur intensity */
+  z-index: 1050; /* Ensure it's behind the modal */
+  display: none; /* Hidden by default */
+}
+
+.backdrop.show {
+  display: block; /* Show backdrop when modal is open */
+}
+
+// /* Ensure modal itself appears above the backdrop */
+// .modal {
+//   z-index: 1060;
+// }
+
+// -------- Toast Notification Component --------
+
+.toast-container {
+  position: fixed;
+  bottom: 80px; /* Adjust this based on the size of the scroll button */
+  right: 10px;
+  z-index: 1050; /* Higher z-index to ensure it appears above other elements */
+}
+
+
+// -------- ScrollBackToTop Component --------
+
 #scrollToTop {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    z-index: 1040;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
     font-size: 24px;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     opacity: 0;
     visibility: hidden;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 1040; /* Lower than the toast so it stays behind */
 
     &.visible {
         opacity: 1;
         visibility: visible;
     }
+}
+
+// -------- About Me Page --------
+
+// .neutral-color-test {
+//   background-color: #6c757d !important;
+// }
+
+#exotic-bird {
+  border-radius: 50% !important; /* Makes the image rounded */
+  border: 2px solid black; /* Applies a black border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds a soft black shadow */
+}
+
+@media (max-width: 575.98px) { /* Extra small devices (portrait phones, less than 576px) */
+  #exotic-bird {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { /* Small devices (landscape phones, 576px and up) */
+  #exotic-bird {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { /* Medium devices (tablets, 768px and up) */
+  #exotic-bird {
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) { /* Large devices (desktops, 992px and up) */
+  #exotic-bird {
+    width: 375px;
+    height: 375px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// ------ Footer Component ------
+
+.footer-text {
+    font-size: 0.875rem;
+    font-style: italic;
+    color: #6c757d;
 }
 
 // .collapsed-card .card-body {
@@ -31,4 +161,20 @@
 
 // .collapsed-card .card-header {
 //   border-bottom: none;
+// }
+
+// .searchBox-clearWrapper {
+//   right: 10px;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   cursor: pointer;
+// }
+
+// .searchBox-clear {
+//   color: #aaa;
+//   font-size: 1.2em;
+// }
+
+// .searchBox-clear:hover {
+//   color: #000;
 // }

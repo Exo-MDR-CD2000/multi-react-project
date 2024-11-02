@@ -1,43 +1,43 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
+import NavBrandIcon from '../assets/recipe-cookbook.svg';
+// create navbar without using react bootstrap dependency. regular bootstrap is fine.
 
-const BootstrapNavbar: React.FC = () => {
+/**
+ * The Navbar component that provides navigation links to different pages.
+ * 
+ * @returns {JSX.Element} The rendered Navbar component.
+ */
+const Navbar: React.FC = () => {
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <LinkContainer to="/">
-          <Navbar.Brand>MyApp</Navbar.Brand>
-        </LinkContainer>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <LinkContainer to="/">
-              <Nav.Link>Home</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/about">
-              <Nav.Link>About</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/contact">
-              <Nav.Link>Contact</Nav.Link>
-            </LinkContainer>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <LinkContainer to="/action1">
-                <NavDropdown.Item>Action 1</NavDropdown.Item>
-              </LinkContainer>
-              <LinkContainer to="/action2">
-                <NavDropdown.Item>Action 2</NavDropdown.Item>
-              </LinkContainer>
-              <NavDropdown.Divider />
-              <LinkContainer to="/action3">
-                <NavDropdown.Item>Action 3</NavDropdown.Item>
-              </LinkContainer>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+      <Link className="navbar-brand" to="/">
+        <img src={NavBrandIcon} alt="Logo" width="30" height="30" className="d-inline-block align-top me-2" />
+        Recipe Manager
+      </Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/my-recipes">My Recipes</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact">Contact</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 
-export default BootstrapNavbar;
+export default Navbar;

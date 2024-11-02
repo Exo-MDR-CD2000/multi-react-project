@@ -52,13 +52,15 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onUpdateClick, onDelete
       <div className={`card-wrapper ${isCollapsed ? 'collapsed-card' : ''}`}>
         <div className="card">
            {/* Image with click handler to toggle collapse */}
+           <div className=' ratio ratio-4x3'>
           <img
             src={recipe.imageUrl}
-            className="card-img-top"
+            className="card-img-top img-fluid"
             alt={recipe.title}
             onClick={handleToggleCollapse}
             style={{ cursor: 'pointer' }}
           />
+          </div>
           {/* Card header with click handler to toggle collapse */}
           <div className="card-header d-flex justify-content-between align-items-center" onClick={handleToggleCollapse} style={{ cursor: 'pointer' }}>
             <h5 className="card-title mb-0">{recipe.title}</h5>

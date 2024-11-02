@@ -8,7 +8,7 @@ import React, { useState } from 'react';
  * @param {string} searchTerm - The search term entered by the user.
  */
 interface LocalRecipeSearchProps {
-    onSearch: (searchTerm: string) => void;
+  onSearch: (searchTerm: string) => void;
 }
 
 
@@ -20,43 +20,45 @@ interface LocalRecipeSearchProps {
  * @returns  {JSX.Element} The rendered component.
  */
 const LocalRecipeSearch: React.FC<LocalRecipeSearchProps> = ({ onSearch }) => {
-    const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
 
-    /**
-     * Hnandles the change event for the search input.
-     * Updates the search term state and calls the onSearch callback function.
-     * @param {React.ChangeEvent<HTMLInputElement>} event - The change event. 
-     */
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(event.target.value); // update the state with the new value
-    };
+  /**
+   * Hnandles the change event for the search input.
+   * Updates the search term state and calls the onSearch callback function.
+   * @param {React.ChangeEvent<HTMLInputElement>} event - The change event. 
+   */
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value); // update the state with the new value
+  };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        onSearch(searchTerm);
-    };
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onSearch(searchTerm);
+  };
 
-    const handleReset = () => {
-        setSearchTerm('');
-        onSearch('');
-    };
+  const handleReset = () => {
+    setSearchTerm('');
+    onSearch('');
+  };
 
-    return (
-        <div className="search-bar">
-          <form onSubmit={handleSubmit} className="input-group">
-          <input
-            type="text"
-            placeholder="Search recipes by name or reset to view all..."
-            value={searchTerm}
-            onChange={handleChange}
-            className="form-control"
-          />
-          <button type="submit" className="btn btn-primary">Search</button>
-          <button type="button" className="btn btn-secondary" onClick={handleReset}>Reset</button>
-          </form>
-        </div>
-      );
+  return (
+    <div className='recipe-search-wrapper'>
+    <div className="container search-bar">
+      <form onSubmit={handleSubmit} className="input-group">
+        <input
+          type="text"
+          placeholder="Search recipes by name or reset to view all..."
+          value={searchTerm}
+          onChange={handleChange}
+          className="form-control"
+        />
+        <button type="submit" className="btn btn-primary">Search</button>
+        <button type="button" className="btn btn-secondary" onClick={handleReset}>Reset</button>
+      </form>
+    </div>
+    </div>
+  );
 };
 
 export default LocalRecipeSearch;
