@@ -4,7 +4,8 @@ import DocumentTitle from '../components/DocumentTitle';
 
 const AboutPage: React.FC = () => {
   return (
-    <section className="container py-3 py-md-5">
+    <section className="about-page-wrapper">
+      <div className="container py-3 py-md-5">
       <DocumentTitle title="About Me | Jose Guillen" />
       <div className="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
         <div className="col-12 col-lg-6 col-xl-5">
@@ -52,6 +53,7 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
       </div>
+    </div>
     </section>
   );
 };
