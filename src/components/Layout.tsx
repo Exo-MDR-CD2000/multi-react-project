@@ -19,7 +19,7 @@ const Layout: React.FC = () => {
       {/* Include the Navbar component to provide navigation links */}
       <Navbar />
       {/* TODO: Look into removing this container and manually apply it to each page for greater control on styling */}
-      <div className="container mt-4">
+      <div className="mt-4">
         {/* Outlet component is used to render child routes */}
         <Outlet />
         {/* Include the ScrollBackToTop component to handle scrolling behavior */}
