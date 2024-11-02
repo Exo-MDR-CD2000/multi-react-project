@@ -95,6 +95,17 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
     }
   };
 
+  // Maybe not the safest way to reset the form, but it works and state management seems fine in browser
+  const handleReset = () => {
+    setTitle('');
+    setIngredients([]);
+    setInstructions('');
+    setImageUrl('');
+    setServingSize(1);
+    setPrepTime('');
+    setCaloriesPerServing(0);
+  };
+
   return (
     <div className="container mt-4">
       <h2>Add a New Recipe</h2>
@@ -201,6 +212,7 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAddRecipe }) => {
           ))}
         </ul>
         <button type="submit" className="btn btn-primary">Submit Recipe</button>
+        <button type="reset" className="btn btn-secondary ms-2" onClick={handleReset}>Reset Form</button>
       </form>
     </div>
   );
