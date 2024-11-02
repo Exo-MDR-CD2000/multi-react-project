@@ -43,7 +43,8 @@ const LocalRecipeSearch: React.FC<LocalRecipeSearchProps> = ({ onSearch }) => {
   };
 
   return (
-    <div className="search-bar">
+    <div className='recipe-search-wrapper'>
+    <div className="container search-bar">
       <form onSubmit={handleSubmit} className="input-group">
         <input
           type="text"
@@ -55,6 +56,7 @@ const LocalRecipeSearch: React.FC<LocalRecipeSearchProps> = ({ onSearch }) => {
         <button type="submit" className="btn btn-primary">Search</button>
         <button type="button" className="btn btn-secondary" onClick={handleReset}>Reset</button>
       </form>
+    </div>
     </div>
   );
 };
