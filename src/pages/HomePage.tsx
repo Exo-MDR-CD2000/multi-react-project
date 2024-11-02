@@ -51,10 +51,10 @@ const HomePage: React.FC = () => {
     getRecipes();
   }, []);
 
-   /**
-   * Adds a new recipe to the list of recipes.
-   * @param {Partial<Recipe>} recipe - the recipe to add
-   */
+  /**
+  * Adds a new recipe to the list of recipes.
+  * @param {Partial<Recipe>} recipe - the recipe to add
+  */
   const addRecipe = async (recipe: Partial<Recipe>) => {
     try {
       const newRecipe = await addRecipeToAPI(recipe);
@@ -130,10 +130,11 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className='mb-4'>
+    <div className=''>
       <DocumentTitle title="Home | Recipe Manager" />
       {/* Introduction Card */}
-      <div className="row justify-content-center text-center mb-2">
+      <div className='container'>
+        <div className="row justify-content-center text-center mb-2">
           <div className="col-11">
             <div className="card border-0">
               <div className="card-body">
@@ -153,23 +154,30 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
       {/* Display a message if the user is on the Home Page (testing purposes) */}
       {/* {location.pathname === '/' && <div className="location-route-test">You are on the Home Page</div>} */}
-      <div className="row">
-        <div className="col-12">
-          {/* Render the RecipeForm component to add a new recipe */}
-          <RecipeForm onAddRecipe={addRecipe} />
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            {/* Render the RecipeForm component to add a new recipe */}
+            <RecipeForm onAddRecipe={addRecipe} />
+          </div>
         </div>
-        <div className="col-12 mt-4">
-          <hr />
-          {/* Render the RecipeList component to display the list of recipes */}
-          <RecipeList
-            recipes={recipes}
-            onUpdateClick={handleUpdateClick}
-            onDeleteClick={deleteRecipe}
-          />
+      </div>
+      <div className="recipe-list-wrapper">
+        <div className="container">
+          <div className="col-12 mt-4">
+            <hr />
+            {/* Render the RecipeList component to display the list of recipes */}
+            <RecipeList
+              recipes={recipes}
+              onUpdateClick={handleUpdateClick}
+              onDeleteClick={deleteRecipe}
+            />
+          </div>
+          {loading ? (<h3 className="text-center mt-3">Loading...</h3>) : null}
         </div>
-        {loading ? ( <h3 className="text-center mt-3">Loading...</h3> ) : null}
       </div>
       {/* Render the RecipeUpdateModal component to update a recipe */}
       <RecipeUpdateModal
