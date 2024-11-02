@@ -50,7 +50,8 @@ const RecipeTable: React.FC<RecipeTableProps> = ({ recipes, onUpdateClick, onDel
     };
 
   return (
-    <div className="table-responsive">
+    <div className="recipe-table-wrapper">
+    <div className="container table-responsive">
     <table className="table table-striped table-bordered table-hover table-sm">
       <thead>
         <tr>
@@ -77,6 +78,7 @@ const RecipeTable: React.FC<RecipeTableProps> = ({ recipes, onUpdateClick, onDel
       </tbody>
     </table>
     <ImageModal show={showModal} imageUrl={selectedImage} recipeTitle={selectedRecipeTitle} onClose={handleCloseModal} />
+    </div>
     </div>
   );
 };
