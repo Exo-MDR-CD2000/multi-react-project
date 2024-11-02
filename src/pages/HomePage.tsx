@@ -53,6 +53,7 @@ const HomePage: React.FC = () => {
 
   /**
   * Adds a new recipe to the list of recipes.
+  * We destructured the recipe object to only include the properties we need.
   * @param {Partial<Recipe>} recipe - the recipe to add
   */
   const addRecipe = async (recipe: Partial<Recipe>) => {
