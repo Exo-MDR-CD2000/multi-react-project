@@ -10,7 +10,7 @@ For the fourth week, we had to implement an online API that can allow for all CR
 
 Styling was revamped again and other small changes were made. React router was refactored to use a Layout component which includes the Navbar, Footer, and a container for rendering child routes. The Outlet import is used to render child components (the other pages) which are in the App component. It's not exactly one-to-one with the video demonstration, but this implementation is simply one method of doing it. The bootstrap containers were re-worked so that each major div had its own container. This was done to implement a simple color gradient to certain divs or sections.
 
-There's a lot of smaller components that were made to enhance the user experience like the toast notifications, loading messages, changing the document title in the tabs, etc.
+There's a lot of smaller components that were made to enhance the user experience like the toast notifications, loading messages, changing the document title in the tabs, etc. I also added in the ingredients to the update modal and a reset button for the recipe form. 
 
 ## Project Requirements
 
