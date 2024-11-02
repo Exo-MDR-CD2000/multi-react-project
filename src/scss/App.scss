@@ -2,12 +2,30 @@
 //   color: red;
 // }
 
-// f0f9f9
-// -------- Recipe Card Component --------
+// Wrapper styles for the RecipeList, RecipeSearchTable, Contact, and About pages
 
-// .background-light-blue {
-//   background-color: #f0f9f9;
-// }
+.recipe-list-wrapper {
+  // background-color: #f0f9f9;
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+  // width: 100vw;
+  // margin-left: calc(-50vw + 50%);
+  // padding: 20px; // Optional: Add padding to the top and bottom
+}
+
+.recipe-search-table-wrapper {
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+  padding: 20px; // Optional: Add padding to the top and bottom
+}
+
+.contact-wrapper {
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+}
+
+.about-page-wrapper {
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+}
+
+// -------- Recipe Card Component --------
 
 .card-wrapper {
   transition: transform 0.3s ease, box-shadow 0.3s ease;

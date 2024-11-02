@@ -1,3 +1,20 @@
+.recipe-list-wrapper {
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+}
+
+.recipe-search-table-wrapper {
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+  padding: 20px;
+}
+
+.contact-wrapper {
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+}
+
+.about-page-wrapper {
+  background: linear-gradient(to bottom, white 0%, #f0f9f9 25%, #f0f9f9 75%, white 100%);
+}
+
 .card-wrapper {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
